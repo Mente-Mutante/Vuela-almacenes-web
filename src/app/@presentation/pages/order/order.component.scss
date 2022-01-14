@@ -105,7 +105,7 @@
     margin-bottom: 0px;
     font: normal normal normal 12px/14px Roboto;
     letter-spacing: 0px;
-    color: #FFFFFF; 
+    color: #FFFFFF;
 }
 .number-user{
     text-align: left;
@@ -346,7 +346,7 @@ table.table-bordered > tbody > tr > .cell{
 }
 
 table{
-    border-collapse:separate; 
+    border-collapse:separate;
     border-spacing: 0 1px;
 }
 table.table-bordered > thead > tr > th{
@@ -386,7 +386,7 @@ table.table-bordered{
 .table-scroll::-webkit-scrollbar {
     width: 3px;
 }
-  
+
 .table-scroll::-webkit-scrollbar-track {
     background: white;        /* color of the tracking area */
 }
@@ -498,7 +498,7 @@ table.table-bordered{
     float: right;
     margin-right: 5px;
 }
-//register 
+//register
 .btn-delete{
     width: 140px;
     height: 29px;
@@ -646,7 +646,7 @@ table.table-bordered{
     margin-right : 15px;
 }
 table.light{
-    border-collapse:separate; 
+    border-collapse:separate;
     border-spacing: 0 0.5px!important;
 }
 table.table-bordered > tbody > tr > .cell.light{
@@ -843,8 +843,8 @@ table.table-bordered > tbody > tr > .cell.light{
     outline: none !important;
     box-shadow: none;
     box-shadow: 0 0 0 2px $orange;
-    
-}   
+
+}
 .ml-20{
     margin-left: 20px;
 }
@@ -904,4 +904,33 @@ table.table-bordered > tbody > tr > .cell.light{
     font: normal normal normal 13px Poppins;
     text-align: justify;
     color: #717171;
+}
+
+.celda_blanca{
+  background-color: white;
+  font-weight: bold;
+  padding: 25px;
+}
+
+.input-group-text2{
+  display: flex;
+  align-items: center;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+}
+
+.input_costo_calculo{
+  background-color: #707070;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 260px;
+  display: inline-block;
 }

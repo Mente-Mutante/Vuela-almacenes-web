@@ -1,5 +1,5 @@
 <div class="page" id="page" *ngIf="!showRegister && !showDetail">
-    
+
     <div class="col-12 page-content" >
         <div class="col-12">
             <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
@@ -11,10 +11,10 @@
                         </div>
                     </div>
                     <div class="modal-body">
-                      <button class="btn btn-solicitud" data-dismiss="modal" data-toggle="modal" data-target="#modal-solicitud" >Crear con solicitud (1) 
+                      <button class="btn btn-solicitud" data-dismiss="modal" data-toggle="modal" data-target="#modal-solicitud" >Crear con solicitud (1)
                         <i class="bi bi-chevron-right i-modal"></i>
                       </button>
-                      <button class="btn-sin-solicitud" (click)="showRegister = true;sizeRegister()" data-dismiss="modal">Crear sin solicitud 
+                      <button class="btn-sin-solicitud" (click)="showRegister = true;sizeRegister()" data-dismiss="modal">Crear sin solicitud
                         <i class="bi bi-chevron-right i-modal"></i>
                       </button>
                       <div class="divider-modal"></div>
@@ -42,32 +42,32 @@
                             <h4 class="text-option">
                             <label for="id1" class="radio-inline">
                             Marbelle Flores
-                            </label> 
-                            <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                            </label>
+                            <input type="radio" class="radio-option" name="optradio" id="id1">
                             </h4>
                         </div>
                         <div class="col-12 text-center option-modal">
                             <h4 class="text-option">
                             <label for="id1" class="radio-inline">
                             Marcos Torres
-                            </label> 
-                            <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                            </label>
+                            <input type="radio" class="radio-option" name="optradio" id="id1">
                             </h4>
                         </div>
                         <div class="col-12 text-center option-modal">
                             <h4 class="text-option">
                             <label for="id1" class="radio-inline">
                             Mariluz Castillo
-                            </label> 
-                            <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                            </label>
+                            <input type="radio" class="radio-option" name="optradio" id="id1">
                             </h4>
                         </div>
                         <div class="col-12 text-center option-modal">
                             <h4 class="text-option">
                             <label for="id1" class="radio-inline">
                             Mar Helena Mosquera
-                            </label> 
-                            <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                            </label>
+                            <input type="radio" class="radio-option" name="optradio" id="id1">
                             </h4>
                         </div>
                       </div>
@@ -88,7 +88,7 @@
                 </div>
               </div>
 
-              
+
               <div class="modal fade" id="modal-estado" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
@@ -117,16 +117,16 @@
                             <h4 class="text-option">
                                 <label for="id1" class="radio-inline">
                                 Activo
-                                </label> 
-                                <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                                </label>
+                                <input type="radio" class="radio-option" name="optradio" id="id1">
                                 </h4>
                         </div>
                         <div class="col-3 check-modal mt-2">
                             <h4 class="text-option">
                                 <label for="id1" class="radio-inline">
                                 Suspendido
-                                </label> 
-                                <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                                </label>
+                                <input type="radio" class="radio-option" name="optradio" id="id1">
                                 </h4>
                         </div>
                       </div>
@@ -169,7 +169,7 @@
                                 <p class="txt-comentario-fecha">12-12-2021</p>
                                 <p class="txt-comentario-hora">12:00 P.M.</p>
                             </div>
-                            
+
                         </div>
                         <div class="row mt-3">
                             <div class="col-1"></div>
@@ -312,8 +312,11 @@
               </div>
 
 
-              <div class="modal fade" id="modal-pago" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-                <div class="modal-dialog  modal-lg">
+              <div class="modal fade" id="modal-pago"
+              tabindex="-1" aria-labelledby="modalLabel"
+              aria-hidden="true">
+                <div class="modal-dialog"
+                style="max-width: 90%;">
                   <div class="modal-content">
                     <div class="modal-header">
                         <div class="container text-center">
@@ -321,7 +324,8 @@
                             <p class="txt-sub-modal-header">Visualización de la Orden de Compra</p>
                         </div>
                     </div>
-                    <div class="col-12 mt-3">
+                    <div class="molda-body">
+                      <div class="col-12 mt-3">
                         <div class="row">
                             <div class="col-6">
                                 <div class="row">
@@ -429,7 +433,111 @@
                             </div>
                         </div>
                     </div>
-                    <div class="container mt-3">
+                    <div class="col-12 table-scroll mt-3" id="table-user">
+                      <table class="table table-bordered" style="margin: auto 10px;">
+                        <thead style="vertical-align: middle;">
+                          <tr>
+                            <th rowspan="2" style="width: 5%; font-weight: normal;">ITEM</th>
+                            <th rowspan="2" style="width: 13%; font-weight: normal;">SKU</th>
+                            <th rowspan="2" style="width: 12%; font-weight: normal;">CODIGO DE FABRICA</th>
+                            <th rowspan="2" style="width: 10%; font-weight: normal;">MARCA</th>
+                            <th rowspan="2" style="width: 30%; font-weight: normal;">DESCRIPCION</th>
+                            <th colspan="4" style="width: 30%; font-weight: normal;">PEDIDO</th>
+                          </tr>
+                        <tr>
+                          <th style="font-weight: normal;">UNIDAD</th>
+                          <th style="font-weight: normal;">CANTIDAD</th>
+                          <th style="font-weight: normal;">PRECIO UNITARIO BS</th>
+                          <th style="font-weight: normal;">PRECI TOTAL BS</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th style="background-color: #A4A4A4;
+                            color: white;" class="cell">1</th>
+                            <td class="cell celda_blanca"> 4225 776 3234 </td>
+                            <td class="cell celda_blanca"> 12213EEE1 </td>
+                            <td class="cell celda_blanca"> MARCA I </td>
+                            <td class="cell celda_blanca"> Lorem ipum dsdsdsdsdsds </td>
+                            <td class="cell celda_blanca"> 2 </td>
+                            <td class="cell celda_blanca"> 4 </td>
+                            <td class="cell celda_blanca"> 20.4 BS </td>
+                            <td class="cell celda_blanca"> 20.4 BS </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <div class="row mt-4">
+                        <div class="col-md-6">
+                          <div class="input-group" style="margin: auto 10px;">
+                            <div class="input-group-prepend" style="text-align: center">
+                              <span class="input-group-text2 input_costo_calculo"> SUB TOTAL </span>
+                            </div>
+                            <input type="text" class="form-control" id="" value="123.23 BS" style="text-align: center;">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mt-3">
+                        <div class="col-md-6">
+                          <div class="input-group" style="margin: auto 10px;">
+                            <div class="input-group-prepend" style="text-align: center">
+                              <span class="input-group-text2 input_costo_calculo"> DESCUENTO </span>
+                            </div>
+                            <input type="text" class="form-control" id="" value="0.00 BS" style="text-align: center;">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mt-3">
+                        <div class="col-md-6">
+                          <div class="input-group" style="margin: auto 10px;">
+                            <div class="input-group-prepend" style="text-align: center">
+                              <span class="input-group-text2 input_costo_calculo"> TOTAL BS </span>
+                            </div>
+                            <input type="text" class="form-control" id="" value="123.23 BS" style="text-align: center;">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row mt-3">
+                        <table class="col-md-12 table table-bordered" style="margin: auto 10px;">
+                          <thead>
+                              <tr>
+                                  <th style="width: 15%; font-weight: normal;"> Solicitante </th>
+                                  <th style="width: 15%; font-weight: normal;"> Administración </th>
+                                  <th style="width: 20%; font-weight: normal;"> Conformidad de almacen </th>
+                                  <th style="width: 50%; font-weight: normal;"> IMPORTANTE </th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td class="cell celda_blanca"> Leonardo Rafael Quispe Pacheco </td>
+                                  <td class="cell celda_blanca"> Leonardo Rafael Quispe Pacheco </td>
+                                  <td class="cell celda_blanca">  </td>
+                                  <td class="cell celda_blanca"> 1. But I must explain to you how all... </td>
+
+                              </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                    </div>
+                    </div>
+
+                    <div class="modal-footer mt-4" style="background-color: #F6F6F6;">
+                      <div class="col-md-10" style="font-weight: bold;">
+                        <p style="color: #D95A2B; text-align: left;"> Estado: <span> "Enviado" </span></p>
+                        <p> <span> Leonardo Rafael Quispe Pacheco </span></p>
+                        <p style="font-weight: normal;"> <span> Área de logística </span></p>
+                      </div>
+                      <div class="col-md-2">
+                        <button class="btn btn-block" style="background-color: black; color: white;"> Descargar PDF </button>
+                      </div>
+                    </div>
+
+
+                    <!-- <div class="container mt-3">
                         <div class="row">
                             <div class="col-3"></div>
                             <div class="col-3 text-center">
@@ -441,7 +549,8 @@
                             </div>
                             <div class="col-2"></div>
                         </div>
-                    </div>
+                    </div> -->
+
                   </div>
                 </div>
               </div>
@@ -460,10 +569,10 @@
                 <div class="row">
                     <!-- <p  class="title-body">Listado de órdenes de compra</p> -->
                     <!-- <button class="btn btn-usuarios" data-toggle="modal" data-target="#modal">+ Crear usuario</button> -->
-                    
-                    
+
+
                     <div class="col-3 p-0">
-                        <input type="text" class="form-control input-search" id="search" placeholder="Buscar">  
+                        <input type="text" class="form-control input-search" id="search" placeholder="Buscar">
                     </div>
                     <div class="col-3 p-0 mt-1">
                         <i class="bi bi-funnel-fill ml-20 i-filter"></i>
@@ -472,7 +581,7 @@
                     <div class="col-6 p-0">
                         <button class="btn btn-crear-orden" data-toggle="modal" data-target="#modal-crear-orden">Crear orden de compra</button>
                     </div>
-                    
+
                     <div class="col-12 table-scroll mt-3" id="table-user">
                         <table class="table table-bordered">
                             <thead>
@@ -495,7 +604,7 @@
                                     <!-- <td class="cell " data-toggle="modal" data-target="#modal-estado"> <div class="col-2 p-0">
                                       <div class="dropdown-table">
                                             <button class="input dropdown-toggle-filter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              Enviado <svg style="fill:white" class="i-row" xmlns="http://www.w3.org/2000/svg" width="20.741" height="10.519" viewBox="0 0 20.741 14.519"><path d="M6.41,9H17.59a1,1,0,0,1,.7,1.71l-5.58,5.58a1,1,0,0,1-1.42,0L5.71,10.71A1,1,0,0,1,6.41,9Z"/></svg> 
+                                              Enviado <svg style="fill:white" class="i-row" xmlns="http://www.w3.org/2000/svg" width="20.741" height="10.519" viewBox="0 0 20.741 14.519"><path d="M6.41,9H17.59a1,1,0,0,1,.7,1.71l-5.58,5.58a1,1,0,0,1-1.42,0L5.71,10.71A1,1,0,0,1,6.41,9Z"/></svg>
                                             </button>
                                             <div class="dropdown-menu menu-filtros" aria-labelledby="dropdownMenuButton">
                                                 <div class="row">
@@ -533,12 +642,12 @@
                                     <td class="cell-active"><i class="bi bi-file-earmark-fill i-file"></i></td>
 
 
-                                   
+
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                            
+
                 </div>
             </div>
         </div>
@@ -576,7 +685,7 @@
                         <img class="i-detail" src="assets/images/Icon awesome-user-circle.svg">
                         <p class="title-detail"> Información del administrador</p>
                     </div>
-    
+
                     <div class="col-12 mt-3">
                         <table class="table table-bordered">
                             <tbody>
@@ -624,8 +733,8 @@
                         <img class="i-detail" src="assets/images/Grupo 308.svg" alt="">
                         <p class="title-detail">Dirección</p>
                     </div>
-                    
-    
+
+
                     <div class="col-12 mt-3">
                         <table class="table table-bordered">
                             <tbody>
@@ -711,7 +820,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 
@@ -788,7 +897,7 @@
                         <img class="i-detail" src="assets/images/Icon awesome-user-circle.svg">
                         <p class="title-detail"> Información del administrador</p>
                     </div>
-    
+
                     <div class="col-12 mt-3">
                         <table class="table table-bordered">
                             <tbody>
@@ -836,8 +945,8 @@
                         <img class="i-detail" src="assets/images/Grupo 308.svg" alt="">
                         <p class="title-detail">Dirección</p>
                     </div>
-                    
-    
+
+
                     <div class="col-12 mt-3">
                         <table class="table table-bordered">
                             <tbody>
@@ -923,7 +1032,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
 
