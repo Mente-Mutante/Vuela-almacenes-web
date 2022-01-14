@@ -18,6 +18,7 @@ export class SlidebarComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+<<<<<<< HEAD
     // let location = this.location.path();
     // console.log(location);
     // if(location == ''){
@@ -37,6 +38,27 @@ export class SlidebarComponent implements OnInit {
     //   document.getElementById('bar').style.display = 'block';
     //   document.getElementById('bar-hide').style.display = 'none';
     // }
+=======
+    let location = this.location.path();
+    console.log(location);
+    if(location == ''){
+      this.changeClass('row-admin');
+    }else{
+      this.changeClass('row-'+this.location.path().substr(1,10));
+      this.changeClassH('row-'+this.location.path().substr(1,10)+'-h');
+    }
+    let hide = localStorage.getItem('hide');
+    if(hide=='true'){
+      document.getElementsByClassName('header-bar')[0].setAttribute('style', 'margin-left:86px;width:100%');
+      document.getElementById('bar').style.display = 'none';
+      document.getElementById('bar-hide').style.display = 'block';
+    }
+    else{
+      document.getElementsByClassName('header-bar')[0].setAttribute('style', 'margin-left:295px');
+      document.getElementById('bar').style.display = 'block';
+      document.getElementById('bar-hide').style.display = 'none';
+    }
+>>>>>>> 9386118282eac5d898c45500dd3fce7e891249c8
   }
 
   routeAdmin(){
