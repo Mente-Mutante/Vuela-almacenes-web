@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+// @import '~bootstrap/scss/bootstrap';
+@font-face {
+    font-family: Poppins;
+    src: url(assets/fonts/Poppins-Regular.ttf) format("opentype");
+}
+@font-face {
+    font-family: Poppins-Medium;
+    src: url(assets/fonts/Poppins-Medium.ttf) format("opentype");
+}
+@font-face {
+    font-family: Poppins-Bold;
+    src: url(assets/fonts/Poppins-Bold.ttf) format("opentype");
+}
+@font-face {
+    font-family: Poppins-Light;
+    src: url(assets/fonts/Poppins-Light.ttf) format("opentype");
+}
+@font-face {
+    font-family: Roboto;
+    src: url(assets/fonts/Roboto-Regular.ttf) format("opentype");
+}
+@font-face {
+    font-family: Roboto-Bold;
+    src: url(assets/fonts/Roboto-Bold.ttf) format("opentype");
+}
+@font-face {
+    font-family: Roboto-Light;
+    src: url(assets/fonts/Roboto-Light.ttf) format("opentype");
+}
+@font-face {
+    font-family: Roboto-Black;
+    src: url(assets/fonts/Roboto-Black.ttf) format("opentype");
+}
+$primary: #0D0D0D;
+$secondary: #8C8C8C;
+$gray: #B5B5B6;
+$orange: #D95A2B;
+$blue: #2487B3;

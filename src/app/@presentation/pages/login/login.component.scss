@@ -1,0 +1,68 @@
+@import '../../../../styles.scss';
+
+.login{
+    width:100%;
+    height:100%;
+    background-image: url('../../../../assets/images/Enmascarar grupo 9.svg');
+    // background-image: url('../../../assets/images/Grupo 514.svg');
+    background-color:#707070;
+}
+.form{
+    margin-top: 200px!important;
+}
+.logo{
+    width:171px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.title{
+    margin-bottom: 0px;
+    text-align: center;
+    font: normal normal bold 24px/29px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+.input{
+    text-align:center;
+    width: 400px;
+    height: 50px;
+    background-color: #8C8C8C;
+    border: 1px solid white;
+    border-radius:10px;
+}
+.input:focus{
+    outline: none!important;
+    background-color: #FFFFFF !important;
+    color: black !important;
+    border: 1px solid $orange!important;
+}
+.btn-login{
+    width: 400px;
+    height: 50px;
+    background: #FF7801 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    font: normal normal bold 18px/22px Roboto-Bold;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+.text-footer{
+    position:fixed;
+    margin-top: auto;
+    margin-bottom: auto;
+    bottom: 15px;
+    left: 46.5%;
+    // margin-top:15%;
+    text-align: center;
+    font: normal normal normal 10px/14px Roboto;
+    letter-spacing: 0px;
+    color: #E2E2E2;
+}
+.text-olvide{
+    text-align: center;
+    text-decoration: underline;
+    font: normal normal bold 14px/17px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}

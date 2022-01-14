@@ -1,0 +1,801 @@
+<div class="page" id="page" *ngIf="!showRegister && !showDetail">
+    
+    <div class="col-12 page-content" >
+        <div class="col-12">
+            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container text-center">
+                          <p class="text-upper mt-3">ADVERTENCIA<strong class="text-header">Creación de usuario</strong></p>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                      <button class="btn btn-solicitud" data-dismiss="modal" data-toggle="modal" data-target="#modal-solicitud" >Crear con solicitud (1) 
+                        <i class="bi bi-chevron-right i-modal"></i>
+                      </button>
+                      <button class="btn-sin-solicitud" (click)="showRegister = true;sizeRegister()" data-dismiss="modal">Crear sin solicitud 
+                        <i class="bi bi-chevron-right i-modal"></i>
+                      </button>
+                      <div class="divider-modal"></div>
+                      <button class="btn-cancelar" data-dismiss="modal">Cancelar</button>
+                    </div>
+                    <!-- <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="modal-solicitud" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container text-center">
+                          <p class="text-upper mt-3">ADVERTENCIA<strong class="text-header">Asignación por solicitud</strong></p>
+                        </div>
+                    </div>
+                    <div class="row container">
+                        <input type="text" class="input mb-3 mt-2" placeholder="Buscar" />
+                        <div class="col-12 text-center option-modal">
+                            <h4 class="text-option">
+                            <label for="id1" class="radio-inline">
+                            Marbelle Flores
+                            </label> 
+                            <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                            </h4>
+                        </div>
+                        <div class="col-12 text-center option-modal">
+                            <h4 class="text-option">
+                            <label for="id1" class="radio-inline">
+                            Marcos Torres
+                            </label> 
+                            <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                            </h4>
+                        </div>
+                        <div class="col-12 text-center option-modal">
+                            <h4 class="text-option">
+                            <label for="id1" class="radio-inline">
+                            Mariluz Castillo
+                            </label> 
+                            <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                            </h4>
+                        </div>
+                        <div class="col-12 text-center option-modal">
+                            <h4 class="text-option">
+                            <label for="id1" class="radio-inline">
+                            Mar Helena Mosquera
+                            </label> 
+                            <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                            </h4>
+                        </div>
+                      </div>
+                    <div class="container mt-2">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-3 texe-center">
+                                <button class="btn-cancelar center" data-dismiss="modal">Cancelar</button>
+                            </div>
+                            <div class="col-1 p-0"></div>
+                            <div class="col-3 text-center">
+                                <button class="btn-confirmar center" (click)="showRegister = true" data-dismiss="modal">Confirmar</button>
+                            </div>
+                            <div class="col-2"></div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              
+              <div class="modal fade" id="modal-estado" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container text-center">
+                          <p class="text-upper mt-3">ADVERTENCIA<strong class="text-header">Estás modificando el estado de un cliente</strong></p>
+                        </div>
+                    </div>
+                    <div class="row container">
+                        <div class="col-6 mt-2">
+                            <p class="label-modal-estado">ID Usuario</p>
+                        </div>
+                        <div class="col-6 mt-2">
+                            <input type="text" class="input" value="#UP0514123">
+                        </div>
+                        <div class="col-6 mt-2">
+                            <p class="label-modal-estado">Nombre</p>
+                        </div>
+                        <div class="col-6 mt-2">
+                            <input type="text" class="input" value="#UP0514123">
+                        </div>
+                        <div class="col-6 mt-2">
+                            <p class="label-modal-estado">Nombre</p>
+                        </div>
+                        <div class="col-3 check-modal mt-2">
+                            <h4 class="text-option">
+                                <label for="id1" class="radio-inline">
+                                Activo
+                                </label> 
+                                <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                                </h4>
+                        </div>
+                        <div class="col-3 check-modal mt-2">
+                            <h4 class="text-option">
+                                <label for="id1" class="radio-inline">
+                                Suspendido
+                                </label> 
+                                <input type="radio" class="radio-option" name="optradio" id="id1"> 
+                                </h4>
+                        </div>
+                      </div>
+                    <div class="container mt-3">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-3 texe-center">
+                                <button class="btn-cancelar center" data-dismiss="modal">Cancelar</button>
+                            </div>
+                            <div class="col-1 p-0"></div>
+                            <div class="col-3 text-center">
+                                <button class="btn-confirmar center" data-dismiss="modal">Confirmar</button>
+                            </div>
+                            <div class="col-2"></div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="modal-pago" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog  modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container text-center">
+                            <p class="txt-modal-header">Detalle de Orden de Compra</p>
+                            <p class="txt-sub-modal-header">Revise el detalle de su Orden de Compra</p>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="label-modal-estado">Proveedor</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="input" placeholder="Nombre completo del proovedor">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="label-modal-estado">Área solicitante</p>
+                                    </div>
+                                    <div class="col-7">
+                                        <input type="text" class="input" placeholder="Área solicitante ingresada">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 mt-3">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="label-modal-estado">Facturar a</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="input" placeholder="Nombre completo del proovedor">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-3">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="label-modal-estado">Fecha</p>
+                                    </div>
+                                    <div class="col-7">
+                                        <input type="text" class="input" placeholder="Área solicitante ingresada">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 mt-3">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="label-modal-estado">NIT</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="input" placeholder="000000000">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-3">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="label-modal-estado">Forma de pago</p>
+                                    </div>
+                                    <div class="col-7">
+                                        <input type="text" class="input" placeholder="Tarjeta de crédito Visa">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 mt-3">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="label-modal-estado">Descripción</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="input" placeholder="Descripción de la orden">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-3">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="label-modal-estado">Moneda</p>
+                                    </div>
+                                    <div class="col-7">
+                                        <input type="text" class="input" placeholder="Dólares americanos">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-6 mt-3">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="label-modal-estado">Ticket</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" class="input" placeholder="000000000">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mt-3">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p class="label-modal-estado">Tiempo de entrega</p>
+                                    </div>
+                                    <div class="col-7">
+                                        <input type="text" class="input" placeholder="Tiempo en el que se hizo la entrega">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container mt-3">
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <div class="col-3 texe-center">
+                                <button class="btn-cancelar center" data-dismiss="modal">Rechazar</button>
+                            </div>
+                            <div class="col-1 p-0"></div>
+                            <div class="col-3 text-center">
+                                <button class="btn-confirmar center" data-dismiss="modal">Aprobar</button>
+                            </div>
+                            <div class="col-2"></div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            <div class="col-12 div-description">
+                <div class="row">
+                    <p class="title-description mt-3">Autorizaciones</p>
+                    <p  class="title-body">Listado de autorizaciones</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 div-menu">
+            <div class="col-12 div-body">
+                <div class="row">
+                    <!-- <p  class="title-body">Listado de órdenes de compra</p> -->
+                    <!-- <button class="btn btn-usuarios" data-toggle="modal" data-target="#modal">+ Crear usuario</button> -->
+                    
+                    
+                    <div class="col-3 p-0">
+                        <input type="text" class="form-control input-search" id="search" placeholder="Buscar código">  
+                    </div>
+                    <div class="col-3 p-0 mt-1">
+                        <i class="bi bi-funnel-fill ml-20 i-filter"></i>
+                        <span class="txt-filter">Filtrar por fecha</span>
+                    </div>
+                    <div class="col-6 p-0">
+                        <button class="btn btn-crear-orden" data-toggle="modal" data-target="#modal">Crear orden de compra</button>
+                    </div>
+                    
+                    <div class="col-12 table-scroll mt-3" id="table-user">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="th-first">Código</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                    <th>Detalle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let i of row">
+                                    <td class="cell">OC000121</td>
+                                    <td class="cell">12/12/2021</td>
+                                    <!-- <td class="cell"><a href="">Ver</a></td> -->
+                                    <!-- <td class="cell " data-toggle="modal" data-target="#modal-estado"> <div class="col-2 p-0">
+                                      <div class="dropdown-table">
+                                            <button class="input dropdown-toggle-filter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              Enviado <svg style="fill:white" class="i-row" xmlns="http://www.w3.org/2000/svg" width="20.741" height="10.519" viewBox="0 0 20.741 14.519"><path d="M6.41,9H17.59a1,1,0,0,1,.7,1.71l-5.58,5.58a1,1,0,0,1-1.42,0L5.71,10.71A1,1,0,0,1,6.41,9Z"/></svg> 
+                                            </button>
+                                            <div class="dropdown-menu menu-filtros" aria-labelledby="dropdownMenuButton">
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                        <input class="check-filtros" type="checkbox">
+                                                    </div>
+                                                    <div class="col-8 p-0">
+                                                        <a class="dropdown-item item-filtros">Creado</a>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                        <input class="check-filtros" type="checkbox">
+                                                    </div>
+                                                    <div class="col-8 p-0">
+                                                        <a class="dropdown-item item-filtros">Eliminado</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          </div>
+                                    </div> </td> -->
+                                    <!-- <td class="cell-active text-center" data-toggle="modal" data-target="#modal-pago">ver detalle
+                                        <svg style="fill: white;" class="i-row" xmlns="http://www.w3.org/2000/svg" width="20.889" height="17.889" viewBox="0 0 21.741 22.619"><path d="M23.271,9.419C21.72,6.893,18.192,2.655,12,2.655S2.28,6.893.729,9.419a4.908,4.908,0,0,0,0,5.162C2.28,17.107,5.808,21.345,12,21.345s9.72-4.238,11.271-6.764A4.908,4.908,0,0,0,23.271,9.419Zm-1.705,4.115C20.234,15.7,17.219,19.345,12,19.345S3.766,15.7,2.434,13.534a2.918,2.918,0,0,1,0-3.068C3.766,8.3,6.781,4.655,12,4.655s8.234,3.641,9.566,5.811A2.918,2.918,0,0,1,21.566,13.534Z"/><path d="M12,7a5,5,0,1,0,5,5A5.006,5.006,0,0,0,12,7Zm0,8a3,3,0,1,1,3-3A3,3,0,0,1,12,15Z"/></svg>
+                                    </td> -->
+                                    <td class="cell">
+                                        <select class="form-control select-estado">
+                                            <option>Pendiente</option>
+                                            <option>Aprobado</option>
+                                            <option>Rechazado</option>
+                                          </select>
+                                    </td>
+                                    <td class="cell-active text-center" data-toggle="modal" data-target="#modal-pago">Ver detalle
+                                        <svg style="fill: white;" class="i-row" xmlns="http://www.w3.org/2000/svg" width="20.889" height="17.889" viewBox="0 0 21.741 22.619"><path d="M23.271,9.419C21.72,6.893,18.192,2.655,12,2.655S2.28,6.893.729,9.419a4.908,4.908,0,0,0,0,5.162C2.28,17.107,5.808,21.345,12,21.345s9.72-4.238,11.271-6.764A4.908,4.908,0,0,0,23.271,9.419Zm-1.705,4.115C20.234,15.7,17.219,19.345,12,19.345S3.766,15.7,2.434,13.534a2.918,2.918,0,0,1,0-3.068C3.766,8.3,6.781,4.655,12,4.655s8.234,3.641,9.566,5.811A2.918,2.918,0,0,1,21.566,13.534Z"/><path d="M12,7a5,5,0,1,0,5,5A5.006,5.006,0,0,0,12,7Zm0,8a3,3,0,1,1,3-3A3,3,0,0,1,12,15Z"/></svg>
+                                    </td>
+                                    <!-- <td class="cell">B2C</td>
+                                    <td class="cell">Descripción del formato de OC</td>
+                                    <td class="cell"><a href="">Ver comentarios</a></td>
+                                    <td class="cell-active"><i class="bi bi-file-earmark-fill i-file"></i></td> -->
+
+
+                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                            
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--Register user-->
+<div class="page-register" *ngIf="showRegister" id="page">
+    <div class="col-12 page-register-content">
+        <div class="col-12">
+            <div class="col-12 div-description">
+                <div class="row">
+                    <svg (click)="showRegister = false;sizeInit()" class="i-step" xmlns="http://www.w3.org/2000/svg" width="26.643" height="26.643" viewBox="0 0 26.643 26.643"><defs></defs><g transform="translate(26.643) rotate(90)"><path class="a" d="M.36.366a1.241,1.241,0,0,0,0,1.748l6.129,6.11a1.235,1.235,0,0,0,1.7.038l6.039-6.02A1.234,1.234,0,1,0,12.49.494L7.3,5.6,2.109.359A1.235,1.235,0,0,0,.36.366Z" transform="translate(6.019 10.054)"/><path class="a" d="M0,13.321A13.321,13.321,0,1,0,13.321,0,13.319,13.319,0,0,0,0,13.321ZM21.289,5.354A11.267,11.267,0,1,1,5.354,21.289,11.267,11.267,0,1,1,21.289,5.354Z" transform="translate(0)"/></g></svg>
+                    <svg class="i-step" xmlns="http://www.w3.org/2000/svg" width="27.598" height="27.598" viewBox="0 0 11.598 11.598"><defs></defs><path class="a" d="M14.573,10.139a.54.54,0,0,1,.761,0l2.66,2.668a.538.538,0,0,1,.017.742L15.39,16.178a.537.537,0,1,1-.761-.758l2.228-2.261L14.573,10.9A.532.532,0,0,1,14.573,10.139Z" transform="translate(-10.037 -7.363)"/><path class="a" d="M3.375,9.174a5.8,5.8,0,1,0,5.8-5.8A5.8,5.8,0,0,0,3.375,9.174Zm.892,0a4.912,4.912,0,1,1,1.439,3.468A4.865,4.865,0,0,1,4.267,9.174Z" transform="translate(-3.375 -3.375)"/></svg>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-8 p-0">
+                                <p class="title-description mt-3">Crear usuario</p>
+                            </div>
+                            <div class="col-4 p-0 mt-3">
+                                <button class="btn-new p-2" (click)="showRegister=false;sizeInit()">Crear usuario</button>
+                                <button class="btn-delete p-2" (click)="showRegister=false;sizeInit()">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="div-info">
+                <div class="row">
+                    <div class="col-12 p-0">
+                        <img class="i-detail" src="assets/images/Icon awesome-user-circle.svg">
+                        <p class="title-detail"> Información del administrador</p>
+                    </div>
+    
+                    <div class="col-12 mt-3">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="detail cell-first">ID de usuario</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe id de usuario"></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Correo electrónico</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribir correo electrónico"></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Contraseña de Acceso</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribir contraseña"></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Nombre Completo</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribir nombre"></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Carnet de Identidad</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe carnet de identidad"></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Número de Celular</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe número de celular"></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Número Fijo</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe número fijo"></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Pago</td>
+                                    <td class="cell-active cell-last" style="padding-left: 21px;">Sin procesar</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-dir">
+                <div class="row">
+                    <div class="col-8 p-0">
+                        <img class="i-detail" src="assets/images/Grupo 308.svg" alt="">
+                        <p class="title-detail">Dirección</p>
+                    </div>
+                    
+    
+                    <div class="col-12 mt-3">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="detail cell-first">País</td>
+                                    <td class="detail cell-last">
+                                        <select class="input-hide black block">
+                                            <option value="peru">Perú</option>
+                                            <option value="peru">Bolivia</option>
+                                            <option value="peru">Ecuador</option>
+                                            <option value="peru">Argentina</option>
+                                            <option value="peru">Ecuador</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Municipio</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe municipio"></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Ciudad</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe ciudad"></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Zona</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe zona"></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Calle/Av.</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe calle o av."></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Número</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe número"></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Tipo de Resiidencia</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe tipo de residencia"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-user-register">
+                <div class="row">
+                    <div class="col-8 p-0">
+                        <img class="i-detail" src="assets/images/Grupo 309.svg" alt="">
+                        <p class="title-detail">Usuarios secundarios asignados</p>
+                    </div>
+                    <div class="col-4 p-0">
+                        <button class="btn btn-guardar">Guardar</button>
+                        <button class="btn btn-editar">Asignar</button>
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="div-user-detail first">
+                                <p class="title-detail">Sin asignar</p>
+                                    <table class="table table-user-detail">
+                                        <tbody>
+                                            <tr>
+                                                <td class="cell-first user-detail">-</td>
+                                                <td class="cell user-detail">-</td>
+                                                <td class="cell-last user-detail">Cámaras asignadas</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                <button class="btn btn-usuario">Ver usuario</button>
+                            </div>
+                            <div class="div-user-detail last">
+                                <p class="title-detail">Sin asignar</p>
+                                <table class="table table-user-detail">
+                                    <tbody>
+                                        <tr>
+                                            <td class="cell-first user-detail">-</td>
+                                            <td class="cell user-detail">-</td>
+                                            <td class="cell-last user-detail">Cámaras asignadas</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button class="btn btn-usuario">Ver usuario</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="div-cam">
+                <div class="row">
+                    <div class="col-8 p-0">
+                        <img class="i-detail" src="assets/images/Grupo 308.svg" alt="">
+                        <p class="title-detail">Cámaras asignadas</p>
+                    </div>
+                    <div class="col-4 p-0">
+                        <button class="btn btn-guardar">Guardar</button>
+                        <button class="btn btn-editar">Asignar</button>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <table class="table table-bordered light">
+                            <thead>
+                                <tr>
+                                    <th>ID Cámara</th>
+                                    <th>IP Cámara</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover">
+                                    <td class="light txt-doc cell-first"></td>
+                                    <td class="cell light txt"></td>
+                                    <td class="cell-disabled light txt">Inactivo
+                                        <img class="i-edit" src="assets/images/icon edit.svg" alt="">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!--Detail user-->
+<div class="page-register" *ngIf="showDetail" id="page">
+    <div class="col-12 page-register-content">
+        <div class="col-12">
+            <div class="col-12 div-description">
+                <div class="row">
+                    <svg (click)="showDetail = false;sizeInit()" class="i-step" xmlns="http://www.w3.org/2000/svg" width="26.643" height="26.643" viewBox="0 0 26.643 26.643"><defs></defs><g transform="translate(26.643) rotate(90)"><path class="a" d="M.36.366a1.241,1.241,0,0,0,0,1.748l6.129,6.11a1.235,1.235,0,0,0,1.7.038l6.039-6.02A1.234,1.234,0,1,0,12.49.494L7.3,5.6,2.109.359A1.235,1.235,0,0,0,.36.366Z" transform="translate(6.019 10.054)"/><path class="a" d="M0,13.321A13.321,13.321,0,1,0,13.321,0,13.319,13.319,0,0,0,0,13.321ZM21.289,5.354A11.267,11.267,0,1,1,5.354,21.289,11.267,11.267,0,1,1,21.289,5.354Z" transform="translate(0)"/></g></svg>
+                    <svg class="i-step" xmlns="http://www.w3.org/2000/svg" width="27.598" height="27.598" viewBox="0 0 11.598 11.598"><defs></defs><path class="a" d="M14.573,10.139a.54.54,0,0,1,.761,0l2.66,2.668a.538.538,0,0,1,.017.742L15.39,16.178a.537.537,0,1,1-.761-.758l2.228-2.261L14.573,10.9A.532.532,0,0,1,14.573,10.139Z" transform="translate(-10.037 -7.363)"/><path class="a" d="M3.375,9.174a5.8,5.8,0,1,0,5.8-5.8A5.8,5.8,0,0,0,3.375,9.174Zm.892,0a4.912,4.912,0,1,1,1.439,3.468A4.865,4.865,0,0,1,4.267,9.174Z" transform="translate(-3.375 -3.375)"/></svg>
+                    <div class="col-8 mt-2">
+                        <p class="page-title">Administración de Usuarios > <strong class="page-title">Usuarios principales > Detalles de Usuario</strong></p>
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-8 p-0">
+                                <p class="title-description-light mt-3">Detalles del usuario <strong class="title-description-upper">(Paris Valverde)</strong> </p>
+                            </div>
+                            <div class="col-4 p-0 mt-3">
+                                <button class="btn-delete p-2" (click)="showDetail=false;sizeInit()">Eliminar usuario</button>
+                                <button class="btn-suspend p-2" (click)="showDetail=false;sizeInit()">Suspender usuario</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="div-info">
+                <div class="row">
+                    <div class="col-12 p-0">
+                        <img class="i-detail" src="assets/images/Icon awesome-user-circle.svg">
+                        <p class="title-detail"> Información del administrador</p>
+                    </div>
+    
+                    <div class="col-12 mt-3">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="detail cell-first">ID de usuario</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe id de usuario" value="#UP01012345" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Correo electrónico</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribir correo electrónico" value="paval@gmail.com" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Contraseña de Acceso</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribir contraseña" value="****************" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Nombre Completo</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribir nombre" value="Paris Valverde Echenique" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Carnet de Identidad</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe carnet de identidad" value="E98765445" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Número de Celular</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe número de celular" value="+591 987 654 321" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Número Fijo</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe número fijo" value="+554 214 65" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Pago</td>
+                                    <td class="cell-active cell-last" style="padding-left: 21px;">Efectuado</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-dir">
+                <div class="row">
+                    <div class="col-8 p-0">
+                        <img class="i-detail" src="assets/images/Grupo 308.svg" alt="">
+                        <p class="title-detail">Dirección</p>
+                    </div>
+                    
+    
+                    <div class="col-12 mt-3">
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td class="detail cell-first">País</td>
+                                    <td class="detail cell-last">
+                                        <select class="input-hide black block">
+                                            <option value="peru">Perú</option>
+                                            <option value="peru">Bolivia</option>
+                                            <option value="peru">Ecuador</option>
+                                            <option value="peru">Argentina</option>
+                                            <option value="peru">Ecuador</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Municipio</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe municipio" value="Lorem Ipsum Jipsum" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Ciudad</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe ciudad" value="Lorem Ipsum Jipsum" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Zona</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe zona" value="Lorem Ipsum Jipsum" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Calle/Av.</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe calle o av." value="Lorem Ipsum Jipsum" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Número</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe número" value="Lorem Ipsum Jipsum" disabled></td>
+                                </tr>
+                                <tr>
+                                    <td class="detail cell-first">Tipo de Resiidencia</td>
+                                    <td class="detail cell-last"><input type="text" class="input-hide" placeholder="Escribe tipo de residencia" value="Lorem Ipsum Jipsum" disabled></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="div-user-register">
+                <div class="row">
+                    <div class="col-8 p-0">
+                        <img class="i-detail" src="assets/images/Grupo 309.svg" alt="">
+                        <p class="title-detail">Usuarios secundarios asignados</p>
+                    </div>
+                    <div class="col-4 p-0">
+                        <button class="btn btn-guardar">Guardar</button>
+                        <button class="btn btn-editar">Asignar</button>
+                    </div>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="div-user-detail first">
+                                <p class="title-detail">Luana Valverde Echenique</p>
+                                    <table class="table table-user-detail">
+                                        <tbody>
+                                            <tr>
+                                                <td class="cell-first user-detail">Cónyugue</td>
+                                                <td class="cell user-detail">Activo</td>
+                                                <td class="cell-last user-detail">Cámaras asignadas</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                <button class="btn btn-usuario">Ver usuario</button>
+                            </div>
+                            <div class="div-user-detail last">
+                                <p class="title-detail">Marcos Echenique Aguirre</p>
+                                <table class="table table-user-detail">
+                                    <tbody>
+                                        <tr>
+                                            <td class="cell-first user-detail">Hijo</td>
+                                            <td class="cell user-detail">Suspendido</td>
+                                            <td class="cell-last user-detail">Cámaras asignadas</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button class="btn btn-usuario">Ver usuario</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="div-cam">
+                <div class="row">
+                    <div class="col-8 p-0">
+                        <img class="i-detail" src="assets/images/Grupo 308.svg" alt="">
+                        <p class="title-detail">Cámaras asignadas</p>
+                    </div>
+                    <div class="col-4 p-0">
+                        <button class="btn btn-guardar">Guardar</button>
+                        <button class="btn btn-editar">Asignar</button>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                        <table class="table table-bordered light">
+                            <thead>
+                                <tr>
+                                    <th>ID Cámara</th>
+                                    <th>IP Cámara</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover" *ngFor="let i of rowCamera">
+                                    <td class="light txt-doc cell-first">QIW-07-UY-1265TY13</td>
+                                    <td class="cell light txt">192.168.1.700</td>
+                                    <td class="cell-active light txt">Activo
+                                        <img class="i-edit" src="assets/images/icon edit.svg" alt="">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
