@@ -852,3 +852,67 @@ table.table-bordered > tbody > tr > .cell.light{
     float: right;
     margin-top: 5px;
 }
+
+.txt-modal-header{
+    color: #FFFFFF;
+    font: normal normal normal 15px Poppins-Bold;
+    margin: 0px;
+}
+
+.txt-sub-modal-header{
+    color: #FFFFFF;
+    font: normal normal normal 14px Poppins-Medium;
+    margin: 0px;
+}
+
+.txt-comentario-eliminar{
+    font: normal normal normal 14px Poppins-Medium;
+    color: #767676;
+    text-align: center;
+  }
+
+  .btn-modal-cancelar-orden{
+    background: #C12727 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    text-align: center;
+    position:relative;
+    left:40%;
+    // float: right;
+    font-size: 12px;
+    font-family: Poppins;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    width: 60%;
+}
+
+.btn-modal-generar-orden{
+    background: $blue 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    text-align: center;
+    position:relative;
+    //left:40%;
+    // float: right;
+    font-size: 12px;
+    font-family: Poppins;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+    background-color: rgb(201, 201, 211);    /* color of the scroll thumb */
+    border-radius: 10px;       /* roundness of the scroll thumb */
+    border: 3px solid #9B9B9B;  /* creates padding around scroll thumb */
+  }
+  .modal-header{
+    background-color:$orange;
+    height: 65px;
+    text-align:center!important;
+    align-items: center;
+    align-items: center;
+    line-height: 40px;
+}
+.txt-modal-header{
+    color: #FFFFFF;
+    font: normal normal normal 15px Poppins-Bold;
+    margin: 0px;
+}
