@@ -1,6 +1,6 @@
-import { Component, OnInit, Input  } from '@angular/core';
+import { Component, OnInit, Input, ViewChild  } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgModule } from '@angular/core';
+import { NgModule, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 // import { AngularEditorConfig } from '@kolkov/angular-editor';
 
@@ -15,9 +15,16 @@ export class AuthorizationComponent implements OnInit {
   showDetail:boolean = false;
   row = [];
   rowCamera = [];
+  @ViewChild('myNameElem') myNameElem: ElementRef;
   
 
   constructor(private router: Router) {}
+
+    changeTab(id){
+      document.getElementById('btn-procesados').className = 'btn-tab-inactive';
+      document.getElementById('btn-pendientes').className = 'btn-tab-inactive';
+      document.getElementById(id).className = 'btn-tab-active';
+    }
 
   ngOnInit(): void {
     this.row.length = 20;
