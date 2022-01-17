@@ -3,6 +3,155 @@
     <div class="col-12 page-content" >
         <div class="col-12">
 
+            <div class="modal fade" id="modal-filtro" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container text-center">
+                            <p class="txt-modal-header">Buscar</p>
+                            <p class="txt-sub-modal-header">Búsqueda de Órdenes de Compra</p>
+                        </div>
+                    </div>
+                    <div class="col-12 p-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="div-filter">
+                                    <table class="table table-filter m-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Filtro por período</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-right orange">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label text-right" for="flexCheckDefault">
+                                                          Esta semana
+                                                        </label>
+                                                      </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label text-right" for="flexCheckDefault">
+                                                          Semana anterior
+                                                        </label>
+                                                      </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right orange">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label text-right" for="flexCheckDefault">
+                                                          Este mes
+                                                        </label>
+                                                      </div>
+                                                </td>
+                                            </tr>
+                                            <tr> 
+                                                <td class="text-right">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label text-right" for="flexCheckDefault">
+                                                          Mes anterior
+                                                        </label>
+                                                      </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                            </div>
+                            <div class="col-6">
+                                <div class="div-filter">
+                                    <table class="table table-filter m-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Filtro por estado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-right orange">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label text-right" for="flexCheckDefault">
+                                                          Creado
+                                                        </label>
+                                                      </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label text-right" for="flexCheckDefault">
+                                                          Enviado
+                                                        </label>
+                                                      </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right orange" >
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label text-right" for="flexCheckDefault">
+                                                          Autorizado
+                                                        </label>
+                                                      </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label text-right" for="flexCheckDefault">
+                                                          Eliminado
+                                                        </label>
+                                                      </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right orange">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label text-right" for="flexCheckDefault">
+                                                          Enviado al proveedor
+                                                        </label>
+                                                      </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-right">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                        <label class="form-check-label text-right" for="flexCheckDefault">
+                                                          Completado
+                                                        </label>
+                                                      </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container mt-3 mb-3 text-center">
+                        <button class="btn btn-reject" data-dismiss="modal">Limpiar campos</button>
+                        <button class="btn btn-success ml-20" data-dismiss="modal">Buscar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
               <div class="modal fade" id="modal-comentarios" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog ">
                   <div class="modal-content">
@@ -776,12 +925,11 @@
                     </div>
                     <div class="col-3 p-0 mt-1">
                         <i class="bi bi-funnel-fill ml-20 i-filter"></i>
-                        <span class="txt-filter">Filtrar</span>
+                        <span class="txt-filter" data-toggle="modal" data-target="#modal-filtro">Filtrar</span>
                     </div>
                     <div class="col-6 p-0">
-                        <button class="btn btn-danger" data-toggle="modal" data-target="#modal-eliminar-orden">Eliminar orden de compra</button>
-
                         <button class="btn btn-crear-orden" data-toggle="modal" data-target="#modal-crear-orden">Crear orden de compra</button>
+                        <button class="btn btn-eliminar-orden" data-toggle="modal" data-target="#modal-eliminar-orden">Eliminar orden de compra</button>
                     </div>
 
                     <div class="col-12 table-scroll mt-3" id="table-user">
