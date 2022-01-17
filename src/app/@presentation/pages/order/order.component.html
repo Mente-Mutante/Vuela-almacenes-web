@@ -203,7 +203,9 @@
 
                         <p class="subtitle-modal mt-3 mb-2">PEDIDO</p>
                         <div class="divider-modal"></div>
-                        <p class="label-modal mt-3">Buscador de palabras clave   <i class="bi bi-search" ngClass="i-modal-secondary"></i></p>
+                        <p class="label-modal mt-3">Buscador de palabras clave 
+                            <i data-toggle="modal" style="cursor: pointer;" data-target="#modal-buscar-producto" class="bi bi-search" ngClass="i-modal-secondary"></i>
+                        </p>
 
                         <div class="row mt-3">
                             <div class="col-3">
@@ -228,7 +230,7 @@
                             </div>
                             <div class="col-3">
                                 <div class="row">
-                                    <div class="col-4 label-modal">
+                                    <div class="col-4 label-modal" style="padding-left: 30px;">
                                         Marca
                                     </div>
                                     <div class="col-8">
@@ -251,9 +253,9 @@
                         <div class="divider-modal" style="margin-top: 20px;"></div>
                         
                         <div class="row mt-3" style="margin-top: 10px;">
-                            <div class="col-3">
+                            <div class="col-2">
                                 <div class="row">
-                                    <div class="col-3 label-modal">
+                                    <div class="col-4 label-modal">
                                         Unidad
                                     </div>
                                     <div class="col-8">
@@ -263,17 +265,17 @@
                             </div>
                             <div class="col-2">
                                 <div class="row">
-                                    <div class="col-5 label-modal">
+                                    <div class="col-4 label-modal">
                                         Cantidad
                                     </div>
-                                    <div class="col-7">
+                                    <div class="col-8">
                                         <input type="text" class="input-crear" placeholder="Ingrese texto">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-2">
+                            <div class="col-3">
                                 <div class="row">
-                                    <div class="col-6 label-modal">
+                                    <div class="col-4 label-modal">
                                         Precio Unitario BS
                                     </div>
                                     <div class="col-6">
@@ -283,7 +285,7 @@
                             </div>
                             <div class="col-2">
                                 <div class="row">
-                                    <div class="col-6 label-modal">
+                                    <div class="col-4 label-modal">
                                         Precio Total BS
                                     </div>
                                     <div class="col-6">
@@ -304,7 +306,7 @@
                         </div>
 
                         <div class="row mt-3" style="margin-top: 10px;">
-                            <div class="col-3">
+                            <div class="col-2">
                                 <div class="row">
                                     <div class="col-4 label-modal">
                                         Total BS
@@ -314,9 +316,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-2">
+                            <div class="col-3">
                                 <div class="row">
-                                    <div class="col-5 label-modal">
+                                    <div class="col-5 label-modal" style="padding-left: 30px;">
                                         Descuento
                                     </div>
                                     <div class="col-7">
@@ -335,22 +337,22 @@
 
                         <div class="row mt-4">
                             <div class="col-12 mt-3" id="table-user">
-                                <table class="table table-bordered" style="margin: auto 10px;">
+                                <table class="table table-bordered">
                                   <thead style="vertical-align: middle;">
                                     <tr>
-                                      <th rowspan="2" style="width: 5%; font-weight: normal;">ITEM</th>
+                                      <th rowspan="2" style="width: 3%; font-weight: normal;">ITEM</th>
                                       <th rowspan="2" style="width: 13%; font-weight: normal;">SKU</th>
-                                      <th rowspan="2" style="width: 12%; font-weight: normal;">CODIGO DE FABRICA</th>
+                                      <th rowspan="2" style="width: 14%; font-weight: normal;">CODIGO DE FABRICA</th>
                                       <th rowspan="2" style="width: 10%; font-weight: normal;">MARCA</th>
                                       <th rowspan="2" style="width: 30%; font-weight: normal;">DESCRIPCION</th>
                                       <th colspan="5" style="width: 30%; font-weight: normal;">PEDIDO</th>
                                     </tr>
                                   <tr>
-                                    <th style="font-weight: normal;">UNIDAD</th>
-                                    <th style="font-weight: normal;">CANTIDAD</th>
-                                    <th style="font-weight: normal;">PRECIO UNITARIO BS</th>
-                                    <th style="font-weight: normal;">PRECI TOTAL BS</th>
-                                    <th style="font-weight: normal;"> <i class="bi bi-trash" style="color: white;"></i> </th>
+                                    <th style="font-weight: normal; width: 21%;">UNIDAD</th>
+                                    <th style="font-weight: normal; width: 21%;">CANTIDAD</th>
+                                    <th style="font-weight: normal; width: 21%;">PRECIO UNITARIO BS</th>
+                                    <th style="font-weight: normal; width: 21%;">PRECI TOTAL BS</th>
+                                    <th style="font-weight: normal; width: 16%;"> <i class="bi bi-trash" style="color: white;"></i> </th>
                                   </tr>
                                   </thead>
                                   <tbody>
@@ -372,7 +374,7 @@
           
                                 <div class="row mt-4">
                                   <div class="col-md-6">
-                                    <div class="input-group" style="margin: auto 10px;">
+                                    <div class="input-group">
                                       <div class="input-group-prepend" style="text-align: center">
                                         <span class="input-group-text2 input_costo_calculo"> SUB TOTAL </span>
                                       </div>
@@ -383,7 +385,7 @@
           
                                 <div class="row mt-3">
                                   <div class="col-md-6">
-                                    <div class="input-group" style="margin: auto 10px;">
+                                    <div class="input-group">
                                       <div class="input-group-prepend" style="text-align: center">
                                         <span class="input-group-text2 input_costo_calculo"> DESCUENTO </span>
                                       </div>
@@ -394,7 +396,7 @@
           
                                 <div class="row mt-3">
                                   <div class="col-md-6">
-                                    <div class="input-group" style="margin: auto 10px;">
+                                    <div class="input-group">
                                       <div class="input-group-prepend" style="text-align: center">
                                         <span class="input-group-text2 input_costo_calculo"> TOTAL BS </span>
                                       </div>
@@ -404,7 +406,7 @@
                                 </div>
           
                                 <div class="row mt-3">
-                                  <table class="col-md-12 table table-bordered" style="margin: auto 10px;">
+                                  <table class="col-md-12 table table-bordered">
                                     <thead>
                                         <tr>
                                             <th style="width: 15%; font-weight: normal;"> Solicitante </th>
@@ -439,6 +441,62 @@
                             <button class="btn btn-modal-generar-orden">Guardar orden de compra <i class="bi bi-save-fill" style="color: white;"></i></button>
                         </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="modal fade" id="modal-buscar-producto" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog " style="max-width: 60%;">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="col-11">
+                            <div class="container text-center">
+                                <p class="txt-modal-header" style="font-size: 20px;"> Búsqueda de palabras clave</p>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                            <div class="col-md-1">
+                                <div type="button" style="font-size: 16px;line-height: 15px; color: #FFE9E1; text-align: right;" class="close" data-dismiss="modal">
+                                    <span>Volver</span> <br> <b style="font-size: 24px;padding-right: 5px;" class="bi bi-arrow-return-left"></b>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-md-12" style="padding-left: 20px;">
+                            <div class="form-group">
+                                <label for="comentarios"> <b> Buscador de palabras clave</b>  </label>
+                                <input class="input-crear" id="comentarios" style="resize: none; border: 1px solid #333;" placeholder="TOSHIBA">
+                            </div>
+                        </div>
+
+                        
+                        <div class="mt-3">
+                            <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th style="width: 15%; font-weight: normal; background-color: #D95A2B; border-left: 0;"> SKU </th>
+                                    <th style="width: 15%; font-weight: normal; background-color: #D95A2B; border-left: 0;"> MARCA </th>
+                                    <th style="width: 20%; font-weight: normal; background-color: #D95A2B; border-left: 0;"> CÓDIGO DE FÁBRICA </th>
+                                    <th style="width: 50%; font-weight: normal; background-color: #D95A2B; border-left: 0;"> DESCRIPCIÓN </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="cell celda_blanca"> 4225 776 3224  </td>
+                                    <td class="cell celda_blanca"> TOSHIBA </td>
+                                    <td class="cell celda_blanca"> 123141321GT </td>
+                                    <td class="cell celda_blanca"> 1. But I must explain to you how all... </td>
+    
+                                </tr>
+                            </tbody>
+                            </table>
+                        </div>
+                         
+
+
+                    </div>
+                    
                   </div>
                 </div>
               </div>
