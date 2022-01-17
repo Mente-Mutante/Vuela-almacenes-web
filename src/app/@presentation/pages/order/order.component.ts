@@ -2,6 +2,8 @@ import { Component, OnInit, Input  } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 // import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
@@ -71,6 +73,34 @@ export class OrderComponent implements OnInit {
   
   openSlider(){
     document.getElementById('slide').style.display = 'block';
+  }
+
+  downloadPdf(){
+    const DATA = document.getElementById('table-pdf');
+    const doc = new jsPDF('l', 'mm', 'a4');
+    const options = {
+      background: 'white',
+      scale: 3
+    };
+    html2canvas(DATA, options).then((canvas) => {
+
+      const img = canvas.toDataURL('image/PNG');
+      // const logo = canvas.toDataURL('assets/images/Grupo 6.svg');
+      // Add image Canvas to PDF
+      const bufferX = 15;
+      const bufferY = 15;
+      const imgProps = (doc as any).getImageProperties(img);
+      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width - 15;
+      // doc.addImage(logo, 'PNG');
+      // doc.cell(1 ,3 , pdfWidth/3, 8, 'Hola',10,'Center');
+      // doc.cell(1 ,3 , pdfWidth/3, 8, 'Hola',10,'Center');
+      // doc.cell(1 ,3 , pdfWidth/3, 8, 'Hola',10,'Center');
+      doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+      return doc;
+    }).then((docResult) => {
+      docResult.save(`${new Date().toISOString()}.pdf`);
+    });  
   }
 }
 
