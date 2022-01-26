@@ -161,25 +161,25 @@
                             <p class="txt-sub-modal-header">Comentarios de orden de entrega</p>
                         </div>
                     </div>
-                    <div class="col-12 mt-3">
+                    <div class="col-12 mt-3" *ngFor="let i of comments">
                         <div class="row">
                             <div class="col-2 p-0">
                                 <img class="img-comentarios " src="assets/images/Foto3.png" alt="">
                             </div>
                             <div class="col-6">
-                                <p class="txt-comentario-name">Leonardo Rafael Quispe Pacheco</p>
+                                <p class="txt-comentario-name">{{i.registrado_por}}</p>
                                 <p class="txt-comentario-area">Área de logística</p>
                             </div>
                             <div class="col-3">
-                                <p class="txt-comentario-fecha">12-12-2021</p>
-                                <p class="txt-comentario-hora">12:00 P.M.</p>
+                                <p class="txt-comentario-fecha">{{i.fecha}}</p>
+                                <p class="txt-comentario-hora">{{i.hora}}</p>
                             </div>
 
                         </div>
                         <div class="row mt-3">
                             <div class="col-1"></div>
                             <div class="col-10 div-comentario">
-                                <p style="margin: 0px;">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system,and expound the actual teachings of the great explorer of the truth.</p>
+                                <p style="margin: 0px;">{{i.descripcion}}</p>
                             </div>
                         </div>
                     </div>
@@ -250,7 +250,10 @@
                                         Proveedor
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Nombre completo del proovedor">
+                                        <select name="proveedor-select" id="proveedor-select" class="input-crear">
+                                            <option *ngFor="let i of suppliers" [value]="i.proveedorID">{{i.alias}} </option>
+                                        </select>
+                                        <!-- <input type="text" class="input-crear" placeholder="Nombre completo del proovedor"> -->
                                     </div>
                                 </div>
                             </div>
@@ -323,7 +326,9 @@
                                         Moneda
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Dólares americanos">
+                                        <select name="proveedor-select" id="proveedor-select" class="input-crear">
+                                            <option *ngFor="let i of bills" [value]="i.monedaID">{{i.nombre_moneda}} </option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -505,16 +510,16 @@
                                   </tr>
                                   </thead>
                                   <tbody>
-                                    <tr>
+                                    <tr *ngFor="let i of items; index as idx">
                                       <th style="background-color: #A4A4A4;
-                                      color: white;" class="cell">1</th>
-                                      <td class="cell celda_blanca"> 4225 776 3234 </td>
-                                      <td class="cell celda_blanca"> 12213EEE1 </td>
-                                      <td class="cell celda_blanca"> MARCA I </td>
-                                      <td class="cell celda_blanca"> Lorem ipum dsdsdsdsdsds </td>
+                                      color: white;" class="cell">{{idx + 1}}</th>
+                                      <td class="cell celda_blanca">{{i.itemID}}</td>
+                                      <td class="cell celda_blanca"> {{i.codigo_de_fabrica}} </td>
+                                      <td class="cell celda_blanca"> {{i.marca}} </td>
+                                      <td class="cell celda_blanca"> {{i.nombre_item}} </td>
                                       <td class="cell celda_blanca"> 2 </td>
                                       <td class="cell celda_blanca"> 4 </td>
-                                      <td class="cell celda_blanca"> 20.4 BS </td>
+                                      <td class="cell celda_blanca"> {{i.precio_bs_referencial}} </td>
                                       <td class="cell celda_blanca"> 20.4 BS </td>
                                       <td class="cell celda_blanca" style="background-color: #C31313;"> <i class="bi bi-trash" style="color: white;"></i> </td>
                                     </tr>
@@ -587,7 +592,7 @@
 
                     <div class="modal-footer mt-4" style="background-color: #F6F6F6; flex-wrap: inherit;">
                         <div class="container mt-1 mb-3">
-                            <button class="btn btn-modal-generar-orden">Guardar orden de compra <i class="bi bi-save-fill" style="color: white;"></i></button>
+                            <button class="btn btn-modal-generar-orden" (click)="createOrder()">Guardar orden de compra <i class="bi bi-save-fill" style="color: white;"></i></button>
                         </div>
                     </div>
                   </div>
@@ -702,7 +707,7 @@
                                         <p class="label-modal-estado">Facturar a</p>
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input" placeholder="Nombre completo del proovedor">
+                                        <input type="text" class="input" placeholder="Nombre completo del proovedor" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -712,7 +717,7 @@
                                         <p class="label-modal-estado">Fecha</p>
                                     </div>
                                     <div class="col-7">
-                                        <input type="text" class="input" placeholder="Área solicitante ingresada">
+                                        <input type="text" class="input" placeholder="Área solicitante ingresada" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -723,7 +728,7 @@
                                         <p class="label-modal-estado">NIT</p>
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input" placeholder="000000000">
+                                        <input type="text" class="input" placeholder="000000000" value="{{orderDetail.nit}}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -733,7 +738,7 @@
                                         <p class="label-modal-estado">Forma de pago</p>
                                     </div>
                                     <div class="col-7">
-                                        <input type="text" class="input" placeholder="Tarjeta de crédito Visa">
+                                        <input type="text" class="input" placeholder="Tarjeta de crédito Visa" value="{{orderDetail.forma_pago}}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -744,7 +749,7 @@
                                         <p class="label-modal-estado">Descripción</p>
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input" placeholder="Descripción de la orden">
+                                        <input type="text" class="input" placeholder="Descripción de la orden" value="{{orderDetail.descripcion}}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -765,7 +770,7 @@
                                         <p class="label-modal-estado">Ticket</p>
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input" placeholder="000000000">
+                                        <input type="text" class="input" placeholder="000000000" value="{{orderDetail.ticket}}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -775,7 +780,7 @@
                                         <p class="label-modal-estado">Tiempo de entrega</p>
                                     </div>
                                     <div class="col-7">
-                                        <input type="text" class="input" placeholder="Tiempo en el que se hizo la entrega">
+                                        <input type="text" class="input" placeholder="Tiempo en el que se hizo la entrega" value="{{orderDetail.tiempo_entrega}}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -796,21 +801,21 @@
                           <th style="font-weight: normal;">UNIDAD</th>
                           <th style="font-weight: normal;">CANTIDAD</th>
                           <th style="font-weight: normal;">PRECIO UNITARIO BS</th>
-                          <th style="font-weight: normal;">PRECI TOTAL BS</th>
+                          <th style="font-weight: normal;">PRECIO TOTAL BS</th>
                         </tr>
                         </thead>
                         <tbody>
-                          <tr>
+                          <tr *ngFor="let i of orderDetail.productos; index as idx">
                             <th style="background-color: #A4A4A4;
-                            color: white;" class="cell">1</th>
-                            <td class="cell celda_blanca"> 4225 776 3234 </td>
-                            <td class="cell celda_blanca"> 12213EEE1 </td>
-                            <td class="cell celda_blanca"> MARCA I </td>
-                            <td class="cell celda_blanca"> Lorem ipum dsdsdsdsdsds </td>
-                            <td class="cell celda_blanca"> 2 </td>
-                            <td class="cell celda_blanca"> 4 </td>
-                            <td class="cell celda_blanca"> 20.4 BS </td>
-                            <td class="cell celda_blanca"> 20.4 BS </td>
+                            color: white;" class="cell">{{idx + 1}}</th>
+                            <td class="cell celda_blanca"> {{i.sku}}</td>
+                            <td class="cell celda_blanca"> {{i.codigo_de_fabrica}} </td>
+                            <td class="cell celda_blanca"> {{i.marca}} </td>
+                            <td class="cell celda_blanca"> {{i.nombre_item}} </td>
+                            <td class="cell celda_blanca"> {{i.cantidad}} </td>
+                            <td class="cell celda_blanca"> {{i.cantidad}} </td>
+                            <td class="cell celda_blanca"> {{i.precio_bs_referencial}} BS </td>
+                            <td class="cell celda_blanca"> {{i.cantidad * i.precio_bs_referencial}}BS </td>
                           </tr>
                         </tbody>
                       </table>
@@ -821,7 +826,7 @@
                             <div class="input-group-prepend" style="text-align: center">
                               <span class="input-group-text2 input_costo_calculo"> SUB TOTAL </span>
                             </div>
-                            <input type="text" class="form-control" id="" value="123.23 BS" style="text-align: center;">
+                            <input type="text" class="form-control" id="" value="123.23 BS" style="text-align: center;" [value]="orderDetail.total_compra" disabled>
                           </div>
                         </div>
                       </div>
@@ -832,7 +837,7 @@
                             <div class="input-group-prepend" style="text-align: center">
                               <span class="input-group-text2 input_costo_calculo"> DESCUENTO </span>
                             </div>
-                            <input type="text" class="form-control" id="" value="0.00 BS" style="text-align: center;">
+                            <input type="text" class="form-control" id="" value="0.00 BS" style="text-align: center;" disabled>
                           </div>
                         </div>
                       </div>
@@ -843,7 +848,7 @@
                             <div class="input-group-prepend" style="text-align: center">
                               <span class="input-group-text2 input_costo_calculo"> TOTAL BS </span>
                             </div>
-                            <input type="text" class="form-control" id="" value="123.23 BS" style="text-align: center;">
+                            <input type="text" class="form-control" id="" value="123.23 BS" style="text-align: center;"  [value]="orderDetail.total_compra" disabled>
                           </div>
                         </div>
                       </div>
@@ -928,7 +933,7 @@
                         <span class="txt-filter" data-toggle="modal" data-target="#modal-filtro">Filtrar</span>
                     </div>
                     <div class="col-6 p-0">
-                        <button class="btn btn-crear-orden" data-toggle="modal" data-target="#modal-crear-orden">Crear orden de compra</button>
+                        <button class="btn btn-crear-orden" data-toggle="modal" data-target="#modal-crear-orden" (click)="logorder()">Crear orden de compra</button>
                         <button class="btn btn-eliminar-orden" data-toggle="modal" data-target="#modal-eliminar-orden">Eliminar orden de compra</button>
                     </div>
 
@@ -947,10 +952,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let i of row">
-                                    <td class="cell">OC000121</td>
-                                    <td class="cell">12/12/2021</td>
-                                    <td class="cell"><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-doc">Ver</a></td>
+                                <tr *ngFor="let i of orders">
+                                    <td class="cell">{{i.compraID}}</td>
+                                    <td class="cell">{{i.fecha_reg | date: 'yyyy/MM/dd h:mm:ss a'}}</td>
+                                    <td class="cell"><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-doc" (click)="getOrderDetail(i.compraID)">Ver</a></td>
                                     <!-- <td class="cell " data-toggle="modal" data-target="#modal-estado"> <div class="col-2 p-0">
                                       <div class="dropdown-table">
                                             <button class="input dropdown-toggle-filter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -980,15 +985,15 @@
                                         <svg style="fill: white;" class="i-row" xmlns="http://www.w3.org/2000/svg" width="20.889" height="17.889" viewBox="0 0 21.741 22.619"><path d="M23.271,9.419C21.72,6.893,18.192,2.655,12,2.655S2.28,6.893.729,9.419a4.908,4.908,0,0,0,0,5.162C2.28,17.107,5.808,21.345,12,21.345s9.72-4.238,11.271-6.764A4.908,4.908,0,0,0,23.271,9.419Zm-1.705,4.115C20.234,15.7,17.219,19.345,12,19.345S3.766,15.7,2.434,13.534a2.918,2.918,0,0,1,0-3.068C3.766,8.3,6.781,4.655,12,4.655s8.234,3.641,9.566,5.811A2.918,2.918,0,0,1,21.566,13.534Z"/><path d="M12,7a5,5,0,1,0,5,5A5.006,5.006,0,0,0,12,7Zm0,8a3,3,0,1,1,3-3A3,3,0,0,1,12,15Z"/></svg>
                                     </td> -->
                                     <td class="cell">
-                                        <select class="form-control select-estado">
+                                        <select class="form-control select-estado" [value]="i.estado" disabled>
                                             <option>Enviado</option>
                                             <option>Creado</option>
-                                            <option>Eliminado</option>
+                                            <option>Eliminado</option>  
                                           </select>
                                     </td>
                                     <td class="cell">B2C</td>
-                                    <td class="cell">Descripción del formato de OC</td>
-                                    <td class="cell"><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-comentarios">Ver comentarios</a></td>
+                                    <td class="cell">{{i.descripcion}}</td>
+                                    <td class="cell"><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-comentarios" (click)="getComments(i.compraID)">Ver comentarios</a></td>
                                     <td class="cell-active"><i class="bi bi-file-earmark-fill i-file"></i></td>
 
 
