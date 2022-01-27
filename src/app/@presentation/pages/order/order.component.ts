@@ -18,7 +18,7 @@ import { Utils } from '../../utils/utils-url';
 
 export class OrderComponent implements OnInit {
   
-  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM1LCJpYXQiOjE2NDMwMzI1NDUsImV4cCI6MTY0MzA3NTc0NX0.LWcPZo3kTds4fr4zsCqaDmwD-cpX0X58j3V3ae4zYHs'; 
+  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM1LCJpYXQiOjE2NDMyOTc5NDMsImV4cCI6MTY0MzM0MTE0M30.XeDU3GyYWnNAoGto17ITj8O6vRsB6KYE-9jyc3ZcgF0'; 
 
   user:boolean = false;
   showRegister:boolean = false;
