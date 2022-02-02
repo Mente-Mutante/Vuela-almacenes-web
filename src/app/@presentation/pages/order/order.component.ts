@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import { OrderService } from '../../services/order.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { Utils } from '../../utils/utils-url';
 // import { AngularEditorConfig } from '@kolkov/angular-editor';
 
@@ -18,19 +18,32 @@ import { Utils } from '../../utils/utils-url';
 
 export class OrderComponent implements OnInit {
   
-  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM1LCJpYXQiOjE2NDMwMzI1NDUsImV4cCI6MTY0MzA3NTc0NX0.LWcPZo3kTds4fr4zsCqaDmwD-cpX0X58j3V3ae4zYHs'; 
+  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM1LCJpYXQiOjE2NDM4MTEzODQsImV4cCI6MTY0Mzg1NDU4NH0.1JQIUDbgb75L8fKY-980NvheSJRTA7XjaMwiW5fWxug'; 
 
   user:boolean = false;
   showRegister:boolean = false;
   showDetail:boolean = false;
+  itemSelected : string;
+  fileToUpload: any;
+  idOrderFile: any;
   row = [];
+  files = [];
   rowCamera = [];
   orders = [];
   suppliers = [];
   bills  = [];
+  areas = [];
   items  = [];
+  items2 = [];
+  itemsAdd = [];
+  subTotal : number = 0;
+  desc: number = 0;
+  total: number = 0;
   comments = [];
+  periodo: any;
+  estado: any;
   orderForm = {
+    "fecha":null,
     "proveedorID":null,
     "area_solicitanteID":null,
     "clienteID":null,
@@ -68,6 +81,58 @@ export class OrderComponent implements OnInit {
     private http: HttpClient
     ) {}
 
+  selectItem(id){
+    console.log(id);
+    this.items2.forEach(e =>{
+        if(e.itemID == id){
+          this.itemsAdd.push(e);
+        }      
+    });
+    this.itemsAdd.forEach(e=>{
+      this.subTotal += Number(e.precio_bs_referencial) ;
+    });
+    this.subTotal.toFixed(2);
+    this.total = this.subTotal;
+    // modal-buscar-producto
+    document.getElementById("btnCloseModalBuscarProducto").click();
+  }
+
+  deleteItem(id){
+    console.log(id);
+    this.itemsAdd.forEach((e,i)=>{
+      if(e.itemID == id){
+        this.itemsAdd.splice(i,1);
+      }   
+    });
+  }
+
+  handleFileInput(event){
+    // this.fileToUpload = files.item(0);
+    console.log(event);
+    this.fileToUpload = event.target.files[0];
+    console.log(this.fileToUpload);
+  }
+
+  uploadFile(id){ 
+    console.log(this.fileToUpload);
+    const formData = new FormData();
+    formData.append("archivo", this.fileToUpload);
+    formData.append("compraID", id);
+    formData.append("registradoPortID", '2');
+    return this.http.post<any>(Utils.BASE+'api/archivos',formData,{
+      headers: {
+        'Content-Type':'multipart/form-data; ',
+        'x-token': this.token
+      }
+    }
+    ).subscribe(
+        response => {
+            console.log(response);
+            // this.getOrder();
+        });
+  }
+
+
   getSupplier(){
     this.http.get<any>(Utils.BASE+'api/proveedores',{headers:{
         'x-token':this.token
@@ -77,12 +142,23 @@ export class OrderComponent implements OnInit {
         });
   } 
 
-  getOrder(){
-    this.http.get(Utils.BASE+'api/ocompra',{headers:{
+  filterOrder(start, end) {
+    //2022-01-25
+    this.http.get(Utils.BASE+'pi/ocompra?estado=Pendiente&desde='+start+'&hasta='+end+'',{headers:{
       'x-token':this.token
     }}).subscribe(
         (response:any) => {
-            this.orders  = response.compra_detalle;
+            this.orders = [];
+            this.orders  = response.data;
+        });
+  }
+
+  getOrder(){
+    this.http.get(Utils.BASE+'api/ocompra?estado=&desde=&hasta=',{headers:{
+      'x-token':this.token
+    }}).subscribe(
+        (response:any) => {
+            this.orders  = response.data;
         });
   }
 
@@ -95,17 +171,60 @@ export class OrderComponent implements OnInit {
         });
   }
 
+  getAreas(){
+    this.http.get<any>(Utils.BASE+'api/area',{headers:{
+      'x-token':this.token
+    }}).subscribe(
+        response => {
+            console.log(response);
+            this.areas = response.data;
+        });
+  }
+
+  getFiles(id){
+    this.idOrderFile = id;
+    this.files = [];
+    return this.http.get<any>(Utils.BASE+'api/archivos/'+id,{headers:{
+      'x-token':this.token
+    }}).subscribe(
+        res => {
+          this.files = res.data;
+        },
+      //   err => {
+      //     this.files = [];
+      // }
+      );
+        
+  }
+
+  deleteFile(id){
+    // console.log(id);
+    // document.getElementById("btnCloseUploadmodal"+id).click();
+    return this.http.delete<any>(Utils.BASE+'api/archivos/'+id,{headers:{
+      'x-token':this.token
+    }}).subscribe(
+        res => {
+          // document.getElementById("btn-close-upload-"+id).click();
+          this.getFiles(this.idOrderFile)
+        },
+      //   err => {
+      //     this.files = [];
+      // }
+      );
+  }
+
   getItems(){
     return this.http.get<any>(Utils.BASE+'api/item',{headers:{
       'x-token':this.token
     }}).subscribe(
         response => {
             this.items = response.data;
-            // console.log(response);
+            this.items2 = response.data;
         });
   } 
 
   getComments(id){
+    this.comments = [];
     return this.http.get<any>(Utils.BASE+'api/comentarios/'+id,{headers:{
       'x-token':this.token
     }}).subscribe(
@@ -125,34 +244,40 @@ export class OrderComponent implements OnInit {
       });
   }
 
+  deleteOrder(id){
+    return this.http.delete<any>(Utils.BASE+'api/ocompra/'+id,{headers:{
+      'x-token':this.token
+    }}).subscribe(
+        response => {
+            console.log(response);
+            this.getOrder();
+        });
+  }
+
   //luego le mando los parametros del formulario ;)
   createOrder(){
+    var productos = [];
+    this.itemsAdd.forEach( e=> {
+      productos.push({'itemID':e.itemID,'cantidad':1,'monto':e.precio_bs_referencial});
+    });
+    console.log(productos);
+    console.log(this.subTotal.toString());
+    console.log(this.total.toString());
     return this.http.post<any>(Utils.BASE+'api/ocompra',
     {
-      "proveedorID" : "1",
-      "area_solicitanteID" : "4",
+      "proveedorID" : this.orderForm.proveedorID,
+      "area_solicitanteID" : this.orderForm.area_solicitanteID,
       "clienteID" : "1",
-      "nit" : "123456790",
-      "forma_pago" : "contado",
-      "descripcion" : "descripcion texto 2",
-      "monedaID" : "1",
-      "ticket" : "1",
-      "tiempo_entrega" : "30 dias",
-      "sub_total" : "340",
-      "descuento" : "100",
-      "total_compra" : "980",
-      "productos" : [
-          {
-              "itemID" : "1",
-              "cantidad" : "4",
-              "monto" : "100"
-          },
-          {
-              "itemID" : "2",
-              "cantidad" : "4",
-              "monto" : "120"
-          }
-      ]
+      "nit" : this.orderForm.nit,
+      "forma_pago" : this.orderForm.forma_pago,
+      "descripcion" : this.orderForm.descripcion,
+      "monedaID" : this.orderForm.monedaID,
+      "ticket" : this.orderForm.ticket,
+      "tiempo_entrega" : this.orderForm.tiempo_entrega,
+      "sub_total" : `${this.subTotal}`,
+      "descuento" : "0",
+      "total_compra" : `${this.total}`,
+      "productos" : productos
   }
     ,
         {headers:{
@@ -160,6 +285,7 @@ export class OrderComponent implements OnInit {
         }}).subscribe(  
             response => {
                 console.log(response);
+                document.getElementById("btnCloseModalGenerarOrden").click();
                 this.getOrder();
                 return response;
             });
@@ -173,6 +299,7 @@ export class OrderComponent implements OnInit {
     this.getSupplier();
     this.getBill();
     this.getItems();
+    this.getAreas();
     // this.orders = await this.orderService.getOrder();
     // this.orders = res.compra_detalle;
     // console.log(this.orders);

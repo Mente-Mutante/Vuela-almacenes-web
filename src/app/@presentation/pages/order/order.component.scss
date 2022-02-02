@@ -204,7 +204,8 @@
     border-radius: 5px;
     text-align: center;
     position:relative;
-    left:40%;
+    margin: auto 0px;
+    // left:40%;
     // float: right;
     font-size: 12px;
     font-family: Poppins;
@@ -244,7 +245,7 @@
     color: #FFFFFF;
 }
 .cell-active{
-    cursor: pointer;
+    // cursor: pointer;
     height: 100%;
     background: $orange;
     text-align: center;

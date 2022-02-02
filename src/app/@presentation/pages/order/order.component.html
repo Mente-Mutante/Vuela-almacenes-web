@@ -19,50 +19,35 @@
                                     <table class="table table-filter m-0">
                                         <thead>
                                             <tr>
-                                                <th>Filtro por período</th>
+                                                <th>Filtro por estado</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="text-right orange">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <label class="form-check-label text-right" for="flexCheckDefault">
-                                                          Esta semana
-                                                        </label>
-                                                      </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-right">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <label class="form-check-label text-right" for="flexCheckDefault">
-                                                          Semana anterior
-                                                        </label>
-                                                      </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-right orange">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <label class="form-check-label text-right" for="flexCheckDefault">
-                                                          Este mes
-                                                        </label>
-                                                      </div>
-                                                </td>
-                                            </tr>
-                                            <tr> 
-                                                <td class="text-right">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <label class="form-check-label text-right" for="flexCheckDefault">
-                                                          Mes anterior
-                                                        </label>
-                                                      </div>
-                                                </td>
-                                            </tr>
+                                            <div class="col-12 text-center">
+                                                <div class="" style="background-color: #FFE9E1; padding: 5px">
+                                                    <div class="col-2">
+                                                        <input style="float: left;" type="radio" class="radio-modal" name="opt-estado" id="opt-estado" >
+                                                    </div>
+                                                    <div class="col-10" style="text-align: right;">
+                                                        <label for="opt-estado" class="radio-inline" style="color: #E27B55; font-weight: 500;">
+                                                            Creado
+                                                            </label> 
+                                                    </div>
+                                                </div>
+    
+                                                <div class="" style="background-color: #F1F1F1; padding: 5px">
+                                                    <div class="col-2">
+                                                        <input style="float: left;" type="radio" class="radio-option" name="opt-estado" id="opt-estado">
+                                                    </div>
+                                                    <div class="col-10" style="text-align: right;">
+                                                        <label for="opt-estado" class="radio-inline" style="color: #999999; font-weight: 500;">
+                                                            Enviado
+                                                            </label> 
+                                                    </div>
+                                                </div>
+                                               
+                                            </div>
+                                          
                                         </tbody>
                                     </table>
                                 </div>
@@ -73,70 +58,56 @@
                                     <table class="table table-filter m-0">
                                         <thead>
                                             <tr>
-                                                <th>Filtro por estado</th>
+                                                <th>Filtro por período</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="text-right orange">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <label class="form-check-label text-right" for="flexCheckDefault">
-                                                          Creado
-                                                        </label>
-                                                      </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-right">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <label class="form-check-label text-right" for="flexCheckDefault">
-                                                          Enviado
-                                                        </label>
-                                                      </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-right orange" >
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <label class="form-check-label text-right" for="flexCheckDefault">
-                                                          Autorizado
-                                                        </label>
-                                                      </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-right">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <label class="form-check-label text-right" for="flexCheckDefault">
-                                                          Eliminado
-                                                        </label>
-                                                      </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-right orange">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <label class="form-check-label text-right" for="flexCheckDefault">
-                                                          Enviado al proveedor
-                                                        </label>
-                                                      </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-right">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                        <label class="form-check-label text-right" for="flexCheckDefault">
-                                                          Completado
-                                                        </label>
-                                                      </div>
-                                                </td>
-                                            </tr>
+                                            <div class="col-12 text-center">
+                                                <div class="" style="background-color: #FFE9E1; padding: 5px">
+                                                    <div class="col-2">
+                                                        <input style="float: left;" type="radio" class="radio-modal" name="optradio" id="id1" [(ngModel)]="periodo">
+                                                    </div>
+                                                    <div class="col-10" style="text-align: right;">
+                                                        <label for="id1" class="radio-inline" style="color: #E27B55; font-weight: 500;">
+                                                            Esta semana
+                                                            </label> 
+                                                    </div>
+                                                </div>
+    
+                                                <div class="" style="background-color: #F1F1F1; padding: 5px">
+                                                    <div class="col-2">
+                                                        <input style="float: left;" type="radio" class="radio-option" name="optradio" id="id1">
+                                                    </div>
+                                                    <div class="col-10" style="text-align: right;">
+                                                        <label for="id1" class="radio-inline" style="color: #999999; font-weight: 500;">
+                                                            Semana anterior
+                                                            </label> 
+                                                    </div>
+                                                </div>
+                                                <div class="" style="background-color: #F1F1F1; padding: 5px">
+                                                    <div class="col-2">
+                                                        <input style="float: left;" type="radio" class="radio-option" name="optradio" id="id1">
+                                                    </div>
+                                                    <div class="col-10" style="text-align: right;">
+                                                        <label for="id1" class="radio-inline" style="color: #999999; font-weight: 500;">
+                                                            Este mes
+                                                            </label> 
+                                                    </div>
+                                                </div>
+                                                <div class="" style="background-color: #F1F1F1; padding: 5px">
+                                                    <div class="col-2">
+                                                        <input style="float: left;" type="radio" class="radio-option" name="optradio" id="id1">
+                                                    </div>
+                                                    <div class="col-10" style="text-align: right;">
+                                                        <label for="id1" class="radio-inline" style="color: #999999; font-weight: 500;">
+                                                            Mes anterior
+                                                            </label> 
+                                                    </div>
+                                                </div>
+    
+                                            </div>
+
+                                         
                                         </tbody>
                                     </table>
                                 </div>
@@ -150,6 +121,66 @@
                   </div>
                 </div>
               </div>
+
+              
+
+              <!-- <div class="modal fade" id="modal-archivos" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="container text-center">
+                            <p class="txt-modal-header">Archivos Adjuntos</p>
+                            <p class="txt-sub-modal-header">Archivos Adjuntos a la Orden de Compra</p>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                      <table class="table ">
+                          <thead>
+                              <tr>
+                                  <th>Nombre de archivo</th>
+                                  <th>Fecha de inclusión</th>
+                                  <th>Tipo</th>
+                                  <th></th>
+                                  <th></th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let i of files">
+                                <td>Archivo.doc</td>
+                                <td>12-12-2021</td>
+                                <td>doc</td>
+                                <td>Ver</td>
+                                <td>Eliminar</td>
+                            </tr>
+                          </tbody>
+                      </table>
+                    </div>
+                    <div class="container mt-3 mb-3">
+                        <button class="btn btn-modal-generar-orden" data-toggle="modal" data-target="#modal-upload">Cargar archivos<i class="bi bi-x-lg" style="color: white;"></i></button>
+                    </div>
+
+                    <div class="modal fade" id="modal-upload" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                        <div class="modal-dialog" style="max-width: 60%;">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="container text-center">
+                                    <p class="txt-modal-header">Cargar archivo</p>
+                                    <p class="txt-sub-modal-header">Adjuntar archivo </p>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                              <input type="file" (change)="handleFileInput($event.target.files)">
+                            </div>
+                            <div class="container mt-3 mb-3">
+                                <button class="btn btn-modal-generar-orden" data-dismiss="modal" (click)="uploadFile(16)">Subir<i class="bi bi-x-lg" style="color: white;"></i></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                  </div>
+                </div>
+              </div> -->
 
 
               <div class="modal fade" id="modal-comentarios" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
@@ -190,7 +221,7 @@
                 </div>
               </div>
 
-              <div class="modal fade" id="modal-eliminar-orden" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+              <!-- <div class="modal fade" id="modal-eliminar-orden" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog ">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -221,7 +252,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
 
 
@@ -236,7 +267,7 @@
                             </div>
                         </div>
                         <div class="col-md-1">
-                            <div type="button" style="font-size: 16px;line-height: 15px; color: #FFE9E1; text-align: right;" class="close" data-dismiss="modal">
+                            <div type="button" id="btnCloseModalGenerarOrden" style="font-size: 16px;line-height: 15px; color: #FFE9E1; text-align: right;" class="close" data-dismiss="modal">
                                 <span>Volver</span> <br> <b style="font-size: 24px;padding-right: 5px;" class="bi bi-arrow-return-left"></b>
                               </div>
                         </div>
@@ -250,7 +281,7 @@
                                         Proveedor
                                     </div>
                                     <div class="col-8">
-                                        <select name="proveedor-select" id="proveedor-select" class="input-crear">
+                                        <select name="proveedor-select" id="proveedor-select" class="input-crear" [(ngModel)]="orderForm.proveedorID">
                                             <option *ngFor="let i of suppliers" [value]="i.proveedorID">{{i.alias}} </option>
                                         </select>
                                         <!-- <input type="text" class="input-crear" placeholder="Nombre completo del proovedor"> -->
@@ -263,7 +294,10 @@
                                         Área solicitante
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Área solicitante ingresada">
+                                        <select name="proveedor-select" id="proveedor-select" class="input-crear" [(ngModel)]="orderForm.area_solicitanteID">
+                                            <option *ngFor="let i of areas" [value]="i.IDarea">{{i.nombre_area}} </option>
+                                        </select>
+                                        <!-- <input type="text" class="input-crear" placeholder="Área solicitante ingresada"> -->
                                     </div>
                                 </div>
                             </div>
@@ -274,7 +308,7 @@
                                         Facturar a
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Nombre completo del proovedor">
+                                        <input type="text" class="input-crear" placeholder="Nombre completo del proovedor" [(ngModel)]="orderForm.clienteID">
                                     </div>
                                 </div>
                             </div>
@@ -284,7 +318,7 @@
                                         Fecha
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Área solicitante ingresada">
+                                        <input type="date" class="input-crear" placeholder="Ingrese fecha" [(ngModel)]="orderForm.fecha">
                                     </div>
                                 </div>
                             </div>
@@ -295,7 +329,7 @@
                                         NIT
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="000000000">
+                                        <input type="text" class="input-crear" placeholder="000000000" [(ngModel)]="orderForm.nit">
                                     </div>
                                 </div>
                             </div>
@@ -305,7 +339,11 @@
                                         Forma de pago
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Tarjeta de crédito Visa">
+                                        <select name="forma-pago" class="input-crear" id="form-tarjeta" [(ngModel)]="orderForm.forma_pago">
+                                            <option value="Tarjeta de crédito Visa">Tarjeta de crédito visa</option>
+                                            <option value="Al contado">Al contado</option>
+                                        </select>
+                                        <!-- <input type="text" class="input-crear" placeholder="Tarjeta de crédito Visa"> -->
                                     </div>
                                 </div>
                             </div>
@@ -316,7 +354,7 @@
                                         Descripción
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Descripción de la orden">
+                                        <input type="text" class="input-crear" placeholder="Descripción de la orden" [(ngModel)]="orderForm.descripcion">
                                     </div>
                                 </div>
                             </div>
@@ -326,7 +364,7 @@
                                         Moneda
                                     </div>
                                     <div class="col-8">
-                                        <select name="proveedor-select" id="proveedor-select" class="input-crear">
+                                        <select name="proveedor-select" id="proveedor-select" class="input-crear" [(ngModel)]="orderForm.monedaID">
                                             <option *ngFor="let i of bills" [value]="i.monedaID">{{i.nombre_moneda}} </option>
                                         </select>
                                     </div>
@@ -339,7 +377,7 @@
                                         Ticket
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="000000000">
+                                        <input type="text" class="input-crear" placeholder="000000000" [(ngModel)]="orderForm.ticket">
                                     </div>
                                 </div>
                             </div>
@@ -349,7 +387,7 @@
                                         Tiempo de entrega
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Tiempo en el que se hizo la entrega">
+                                        <input type="text" class="input-crear" placeholder="Tiempo en el que se hizo la entrega" [(ngModel)]="orderForm.tiempo_entrega">
                                     </div>
                                 </div>
                             </div>
@@ -357,11 +395,14 @@
 
                         <p class="subtitle-modal mt-3 mb-2">PEDIDO</p>
                         <div class="divider-modal"></div>
-                        <p class="label-modal mt-3">Buscador de palabras clave 
+                        <p class="label-modal mt-3">Buscador
                             <i data-toggle="modal" style="cursor: pointer;" data-target="#modal-buscar-producto" class="bi bi-search" ngClass="i-modal-secondary"></i>
                         </p>
+                        
 
-                        <div class="row mt-3">
+                        <!--BUSCADOR CAMPOS-->
+
+                        <!-- <div class="row mt-3">
                             <div class="col-3">
                                 <div class="row">
                                     <div class="col-4 label-modal">
@@ -402,11 +443,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="divider-modal" style="margin-top: 20px;"></div>
+                        <!-- <div class="divider-modal" style="margin-top: 20px;"></div> -->
                         
-                        <div class="row mt-3" style="margin-top: 10px;">
+                        <!-- <div class="row mt-3" style="margin-top: 10px;">
                             <div class="col-2">
                                 <div class="row">
                                     <div class="col-4 label-modal">
@@ -457,9 +498,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="row mt-3" style="margin-top: 10px;">
+                        <!-- <div class="row mt-3" style="margin-top: 10px;">
                             <div class="col-2">
                                 <div class="row">
                                     <div class="col-4 label-modal">
@@ -480,18 +521,19 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="row mt-4">
+                        <!--BTN BUSCAR-->
+                        <!-- <div class="row mt-4">
                             <div class="col-md-10"></div>
                             <div class="col-md-2" style="text-align: right;">
                                 <button class="btn btn-block" style="background-color: #D95A2B; color: white;"> Añadir Item &nbsp; &nbsp; &nbsp; &nbsp;<i style="font-size: 16px;" class="bi bi-plus"></i></button>
                               </div>
-                        </div>
+                        </div> -->
 
                         <div class="row mt-4">
                             <div class="col-12 mt-3" id="table-user">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered" *ngIf="itemsAdd.length !== 0">
                                   <thead style="vertical-align: middle;">
                                     <tr>
                                       <th rowspan="2" style="width: 3%; font-weight: normal;">ITEM</th>
@@ -506,58 +548,62 @@
                                     <th style="font-weight: normal; width: 21%;">CANTIDAD</th>
                                     <th style="font-weight: normal; width: 21%;">PRECIO UNITARIO BS</th>
                                     <th style="font-weight: normal; width: 21%;">PRECI TOTAL BS</th>
-                                    <th style="font-weight: normal; width: 16%;"> <i class="bi bi-trash" style="color: white;"></i> </th>
+                                    <th style="font-weight: normal; width: 16%;"> Eliminar</th>
                                   </tr>
                                   </thead>
                                   <tbody>
-                                    <tr *ngFor="let i of items; index as idx">
+                                    <tr *ngFor="let i of itemsAdd; index as idx">
                                       <th style="background-color: #A4A4A4;
                                       color: white;" class="cell">{{idx + 1}}</th>
                                       <td class="cell celda_blanca">{{i.itemID}}</td>
                                       <td class="cell celda_blanca"> {{i.codigo_de_fabrica}} </td>
                                       <td class="cell celda_blanca"> {{i.marca}} </td>
                                       <td class="cell celda_blanca"> {{i.nombre_item}} </td>
-                                      <td class="cell celda_blanca"> 2 </td>
-                                      <td class="cell celda_blanca"> 4 </td>
+                                      <td class="cell celda_blanca"> 1 </td>
+                                      <td class="cell celda_blanca"> 1 </td>
                                       <td class="cell celda_blanca"> {{i.precio_bs_referencial}} </td>
                                       <td class="cell celda_blanca"> 20.4 BS </td>
-                                      <td class="cell celda_blanca" style="background-color: #C31313;"> <i class="bi bi-trash" style="color: white;"></i> </td>
+                                      <td class="cell celda_blanca" style="background-color: #C31313; cursor: pointer;" (click)="deleteItem(i.itemID)"> <i class="bi bi-trash" style="color: white;"></i> </td>
                                     </tr>
                                   </tbody>
                                 </table>
-          
-                                <div class="row mt-4">
-                                  <div class="col-md-6">
-                                    <div class="input-group">
-                                      <div class="input-group-prepend" style="text-align: center">
-                                        <span class="input-group-text2 input_costo_calculo"> SUB TOTAL </span>
+                                
+                                <div *ngIf="itemsAdd.length !== 0">
+                                    <div class="row mt-4">
+                                        <div class="col-md-6">
+                                          <div class="input-group">
+                                            <div class="input-group-prepend" style="text-align: center">
+                                              <span class="input-group-text2 input_costo_calculo"> SUB TOTAL </span>
+                                            </div>
+                                            <input type="text" class="form-control" id="" value="{{subTotal.toFixed(2)}} BS" style="text-align: center;" disabled>
+                                          </div>
+                                        </div>
                                       </div>
-                                      <input type="text" class="form-control" id="" value="123.23 BS" style="text-align: center;">
-                                    </div>
-                                  </div>
-                                </div>
-          
-                                <div class="row mt-3">
-                                  <div class="col-md-6">
-                                    <div class="input-group">
-                                      <div class="input-group-prepend" style="text-align: center">
-                                        <span class="input-group-text2 input_costo_calculo"> DESCUENTO </span>
+                
+                                      <div class="row mt-3">
+                                        <div class="col-md-6">
+                                          <div class="input-group">
+                                            <div class="input-group-prepend" style="text-align: center">
+                                              <span class="input-group-text2 input_costo_calculo"> DESCUENTO </span>
+                                            </div>
+                                            <input type="text" class="form-control" id="" value="0.00 BS" style="text-align: center;" disabled>
+                                          </div>
+                                        </div>
                                       </div>
-                                      <input type="text" class="form-control" id="" value="0.00 BS" style="text-align: center;">
-                                    </div>
-                                  </div>
-                                </div>
-          
-                                <div class="row mt-3">
-                                  <div class="col-md-6">
-                                    <div class="input-group">
-                                      <div class="input-group-prepend" style="text-align: center">
-                                        <span class="input-group-text2 input_costo_calculo"> TOTAL BS </span>
+                
+                                      <div class="row mt-3">
+                                        <div class="col-md-6">
+                                          <div class="input-group">
+                                            <div class="input-group-prepend" style="text-align: center">
+                                              <span class="input-group-text2 input_costo_calculo"> TOTAL BS </span>
+                                            </div>
+                                            <!-- <h1 class="form-control">{{total}} BS</h1> -->
+                                            <input type="text" class="form-control" id="" value="{{total.toFixed(2)}} BS" style="text-align: center;" disabled>
+                                          </div>
+                                        </div>
                                       </div>
-                                      <input type="text" class="form-control" id="" value="123.23 BS" style="text-align: center;">
-                                    </div>
-                                  </div>
                                 </div>
+                                
           
                                 <div class="row mt-3">
                                   <table class="col-md-12 table table-bordered">
@@ -610,7 +656,7 @@
                         </div>
                         <div class="col-1">
                             <div class="col-md-1">
-                                <div type="button" style="font-size: 16px;line-height: 15px; color: #FFE9E1; text-align: right;" class="close" data-dismiss="modal">
+                                <div type="button" id="btnCloseModalBuscarProducto" style="font-size: 16px;line-height: 15px; color: #FFE9E1; text-align: right;" class="close" data-dismiss="modal">
                                     <span>Volver</span> <br> <b style="font-size: 24px;padding-right: 5px;" class="bi bi-arrow-return-left"></b>
                                   </div>
                             </div>
@@ -620,12 +666,15 @@
                         <div class="col-md-12" style="padding-left: 20px;">
                             <div class="form-group">
                                 <label for="comentarios"> <b> Buscador de palabras clave</b>  </label>
-                                <input class="input-crear" id="comentarios" style="resize: none; border: 1px solid #333;" placeholder="TOSHIBA">
+                                <select name="items-select" id="items-select" class="input-crear" (change)="selectItem(itemSelected)" [(ngModel)]="itemSelected">
+                                    <option *ngFor="let i of items" [value]="i.itemID">{{i.nombre_item}} </option>
+                                </select>
+                                <!-- <input class="input-crear" id="comentarios" style="resize: none; border: 1px solid #333;" placeholder="TOSHIBA"> -->
                             </div>
                         </div>
 
                         
-                        <div class="mt-3">
+                        <!-- <div class="mt-3">
                             <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -645,7 +694,7 @@
                                 </tr>
                             </tbody>
                             </table>
-                        </div>
+                        </div> -->
                          
 
 
@@ -686,7 +735,9 @@
                                         <p class="label-modal-estado">Proveedor</p>
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input" placeholder="Nombre completo del proovedor">
+                                        <select name="proveedor-select" id="proveedor-select" class="input-crear" [(ngModel)]="orderDetail.proveedorID" disabled>
+                                            <option *ngFor="let i of suppliers" [value]="i.proveedorID">{{i.alias}} </option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -696,7 +747,9 @@
                                         <p class="label-modal-estado">Área solicitante</p>
                                     </div>
                                     <div class="col-7">
-                                        <input type="text" class="input" placeholder="Área solicitante ingresada">
+                                        <select name="proveedor-select" id="proveedor-select" class="input-crear" [(ngModel)]="orderDetail.area_solicitanteID" disabled>
+                                            <option *ngFor="let i of areas" [value]="i.IDarea">{{i.nombre_area}} </option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -707,7 +760,7 @@
                                         <p class="label-modal-estado">Facturar a</p>
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input" placeholder="Nombre completo del proovedor" disabled>
+                                        <input type="text" class="input-crear" placeholder="Fecha" value="Cliente" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -717,7 +770,8 @@
                                         <p class="label-modal-estado">Fecha</p>
                                     </div>
                                     <div class="col-7">
-                                        <input type="text" class="input" placeholder="Área solicitante ingresada" disabled>
+                                        <input type="date" class="input-crear" placeholder="Fecha" [(ngModel)]="orderDetail.fecha_reg" disabled>
+                                        <!-- <input type="text" class="input" placeholder="Área solicitante ingresada" disabled> -->
                                     </div>
                                 </div>
                             </div>
@@ -728,7 +782,7 @@
                                         <p class="label-modal-estado">NIT</p>
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input" placeholder="000000000" value="{{orderDetail.nit}}" disabled>
+                                        <input type="text" class="input-crear" placeholder="Nit" value="{{orderDetail.nit}}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -738,7 +792,7 @@
                                         <p class="label-modal-estado">Forma de pago</p>
                                     </div>
                                     <div class="col-7">
-                                        <input type="text" class="input" placeholder="Tarjeta de crédito Visa" value="{{orderDetail.forma_pago}}" disabled>
+                                        <input type="text" class="input-crear" placeholder="Nit" value="{{orderDetail.forma_pago}}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -749,7 +803,7 @@
                                         <p class="label-modal-estado">Descripción</p>
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input" placeholder="Descripción de la orden" value="{{orderDetail.descripcion}}" disabled>
+                                        <input type="text" class="input-crear" placeholder="Nit" value="{{orderDetail.descripcion}}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -759,7 +813,9 @@
                                         <p class="label-modal-estado">Moneda</p>
                                     </div>
                                     <div class="col-7">
-                                        <input type="text" class="input" placeholder="Dólares americanos">
+                                        <select name="proveedor-select" id="proveedor-select" class="input-crear" [(ngModel)]="orderDetail.monedaID">
+                                            <option *ngFor="let i of bills" [value]="i.monedaID">{{i.nombre_moneda}} </option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -770,7 +826,7 @@
                                         <p class="label-modal-estado">Ticket</p>
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input" placeholder="000000000" value="{{orderDetail.ticket}}" disabled>
+                                        <input type="text" class="input-crear" placeholder="Nit" value="{{orderDetail.ticket}}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -780,7 +836,7 @@
                                         <p class="label-modal-estado">Tiempo de entrega</p>
                                     </div>
                                     <div class="col-7">
-                                        <input type="text" class="input" placeholder="Tiempo en el que se hizo la entrega" value="{{orderDetail.tiempo_entrega}}" disabled>
+                                        <input type="text" class="input-crear" placeholder="Nit" value="{{orderDetail.tiempo_entrega}}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -949,41 +1005,15 @@
                                     <th>Descripción</th>
                                     <th>Logs</th>
                                     <th>Archivos Adjuntos</th>
+                                    <th>Eliminar</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let i of orders">
-                                    <td class="cell">{{i.compraID}}</td>
-                                    <td class="cell">{{i.fecha_reg | date: 'yyyy/MM/dd h:mm:ss a'}}</td>
+                                    <td class="cell">{{i.codigo}}</td>
+                                    <td class="cell">{{i.fecha_reg}}</td>
                                     <td class="cell"><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-doc" (click)="getOrderDetail(i.compraID)">Ver</a></td>
-                                    <!-- <td class="cell " data-toggle="modal" data-target="#modal-estado"> <div class="col-2 p-0">
-                                      <div class="dropdown-table">
-                                            <button class="input dropdown-toggle-filter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              Enviado <svg style="fill:white" class="i-row" xmlns="http://www.w3.org/2000/svg" width="20.741" height="10.519" viewBox="0 0 20.741 14.519"><path d="M6.41,9H17.59a1,1,0,0,1,.7,1.71l-5.58,5.58a1,1,0,0,1-1.42,0L5.71,10.71A1,1,0,0,1,6.41,9Z"/></svg>
-                                            </button>
-                                            <div class="dropdown-menu menu-filtros" aria-labelledby="dropdownMenuButton">
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                        <input class="check-filtros" type="checkbox">
-                                                    </div>
-                                                    <div class="col-8 p-0">
-                                                        <a class="dropdown-item item-filtros">Creado</a>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-2">
-                                                        <input class="check-filtros" type="checkbox">
-                                                    </div>
-                                                    <div class="col-8 p-0">
-                                                        <a class="dropdown-item item-filtros">Eliminado</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                          </div>
-                                    </div> </td> -->
-                                    <!-- <td class="cell-active text-center" data-toggle="modal" data-target="#modal-pago">ver detalle
-                                        <svg style="fill: white;" class="i-row" xmlns="http://www.w3.org/2000/svg" width="20.889" height="17.889" viewBox="0 0 21.741 22.619"><path d="M23.271,9.419C21.72,6.893,18.192,2.655,12,2.655S2.28,6.893.729,9.419a4.908,4.908,0,0,0,0,5.162C2.28,17.107,5.808,21.345,12,21.345s9.72-4.238,11.271-6.764A4.908,4.908,0,0,0,23.271,9.419Zm-1.705,4.115C20.234,15.7,17.219,19.345,12,19.345S3.766,15.7,2.434,13.534a2.918,2.918,0,0,1,0-3.068C3.766,8.3,6.781,4.655,12,4.655s8.234,3.641,9.566,5.811A2.918,2.918,0,0,1,21.566,13.534Z"/><path d="M12,7a5,5,0,1,0,5,5A5.006,5.006,0,0,0,12,7Zm0,8a3,3,0,1,1,3-3A3,3,0,0,1,12,15Z"/></svg>
-                                    </td> -->
+                                    
                                     <td class="cell">
                                         <select class="form-control select-estado" [value]="i.estado" disabled>
                                             <option>Enviado</option>
@@ -994,8 +1024,105 @@
                                     <td class="cell">B2C</td>
                                     <td class="cell">{{i.descripcion}}</td>
                                     <td class="cell"><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-comentarios" (click)="getComments(i.compraID)">Ver comentarios</a></td>
-                                    <td class="cell-active"><i class="bi bi-file-earmark-fill i-file"></i></td>
+                                    <td class="cell-active" ><i class="bi bi-file-earmark-fill i-file" data-toggle="modal" [attr.data-target]="'#modal-archivos-'+i.compraID" (click)="getFiles(i.compraID)"></i>
+                                    
+                                        <div class="modal fade" id="modal-archivos-{{i.compraID}}" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <div class="container text-center">
+                                                        <p class="txt-modal-header">Archivos Adjuntos</p>
+                                                        <p class="txt-sub-modal-header">Archivos Adjuntos a la Orden de Compra</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 mt-3">
+                                                  <table class="table ">
+                                                      <thead>
+                                                          <tr>
+                                                              <th>Nombre de archivo</th>
+                                                              <th>Fecha de inclusión</th>
+                                                              <th>Tipo</th>
+                                                              <th></th>
+                                                              <th></th>
+                                                          </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                        <tr *ngFor="let i of files">
+                                                            <td>{{i.nombre_archivo_original}}</td>
+                                                            <td>{{i.fecha_reg}}</td>
+                                                            <td>PDF</td>
+                                                            <td><a href="http://167.172.135.171/api/descargar_archivo/{{i.archivoID}}">Ver</a></td>
+                                                            <td><a (click)="deleteFile(i.archivoID)" style="cursor: pointer;">Eliminar</a></td>
+                                                        </tr>
+                                                      </tbody>
+                                                  </table>
+                                                </div>
+                                                <div class="container mt-3 mb-3">
+                                                    <button class="btn btn-modal-generar-orden" data-toggle="modal" [attr.data-target]="'#modal-upload-'+i.compraID">Cargar archivos<i class="bi bi-x-lg" style="color: white;"></i></button>
+                                                    <button class="btn btn-reject" id="btnCloseUploadmodal{{i.compraID}}" data-dismiss="modal">Cancelar<i class="bi bi-x-lg" style="color: white;"></i></button>
+                                                </div>
+                            
+                                                <div class="modal fade" id="modal-upload-{{i.compraID}}" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" style="max-width: 60%;">
+                                                      <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <div class="container text-center">
+                                                                <p class="txt-modal-header">Cargar archivo</p>
+                                                                <p class="txt-sub-modal-header">Adjuntar archivo </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 mt-3">
+                                                            <input (change)="handleFileInput($event)" #fileInput type="file" accept=".pdf" name="pdf-file" id="pdf-file" class="form-control datepicker" placeholder="Selecciona un archivo pdf">
+                                                          <!-- <input type="file" (change)="handleFileInput($event)"> -->
+                                                        </div>
+                                                        <div class="container mt-3 mb-3">
+                                                            <button class="btn btn-modal-generar-orden" data-dismiss="modal" (click)="uploadFile(12)">Subir<i class="bi bi-x-lg" style="color: white;"></i></button>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  
+                                              </div>
+                                            </div>
+                                          </div>
+                                    
+                                    </td>
+                                    <td class="cell celda_blanca" style="background-color: #C31313; cursor: pointer;" data-toggle="modal" [attr.data-target]="'#modal-eliminar-orden-'+i.compraID"> 
+                                    
+                                    <div class="modal fade" id="modal-eliminar-orden-{{i.compraID}}" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                                        <div class="modal-dialog ">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <div class="container text-center">
+                                                    <p class="txt-modal-header"> <i class="bi bi-exclamation-triangle"></i>&nbsp; ADVERTENCIA </p>
+                                                    <p class="txt-sub-modal-header">Eliminar Orden de Compra</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mt-3">
+                                                <div class="row">
+                                                    
+                                                    <div class="col-12">
+                                                        <p class="txt-comentario-eliminar">Está a punto de eliminar una orden de compra</p>
+                                                        <p class="txt-comentario-eliminar">¿Desea proceder?</p>
+                                                    </div>
 
+                                                </div>
+                                            </div>
+                                            <div class="container mt-3 mb-3">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <button class="btn btn-modal-generar-orden" data-dismiss="modal" style="width: 60%;" (click)="deleteOrder(i.compraID)"> Proceder <i class="bi bi-x-lg" style="color: white;"></i></button>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <button class="btn btn-modal-cancelar-orden" data-dismiss="modal" style="left: 5%;"> Cancelar <i class="bi bi-x-lg" style="color: white;"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+
+                                    <i class="bi bi-trash i-file"></i> </td>
 
 
                                 </tr>
