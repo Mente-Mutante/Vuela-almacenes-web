@@ -14,7 +14,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class AuthorizationComponent implements OnInit {
 
-  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM1LCJpYXQiOjE2NDM4MTEzODQsImV4cCI6MTY0Mzg1NDU4NH0.1JQIUDbgb75L8fKY-980NvheSJRTA7XjaMwiW5fWxug'; 
+  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM1LCJpYXQiOjE2NDM4MzE3NTIsImV4cCI6MTY0Mzg3NDk1Mn0.OVrx4-w6X1kKniPO-PAA9ojyCG-TeO_7orIjE8VHPnY'; 
 
   user:boolean = false;
   showRegister:boolean = false;
