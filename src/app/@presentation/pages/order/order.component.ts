@@ -119,17 +119,25 @@ export class OrderComponent implements OnInit {
     formData.append("archivo", this.fileToUpload);
     formData.append("compraID", id);
     formData.append("registradoPortID", '2');
-    return this.http.post<any>(Utils.BASE+'api/archivos',formData,{
-      headers: {
+    fetch(Utils.BASE+'api/archivos',{
+      method: 'POST',
+      headers:{
         'Content-Type':'multipart/form-data; ',
         'x-token': this.token
-      }
-    }
-    ).subscribe(
-        response => {
-            console.log(response);
-            // this.getOrder();
-        });
+      },
+      body: formData
+    })
+    // return this.http.post<any>(Utils.BASE+'api/archivos',formData,{
+    //   headers: {
+    //     'Content-Type':'multipart/form-data; ',
+    //     'x-token': this.token
+    //   }
+    // }
+    // ).subscribe(
+    //     response => {
+    //         console.log(response);
+    //         // this.getOrder();
+    //     });
   }
 
 
