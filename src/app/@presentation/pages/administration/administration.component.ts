@@ -17,7 +17,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AdministrationComponent implements OnInit {
 
-  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM1LCJpYXQiOjE2NDM4NDI3MTgsImV4cCI6MTY0Mzg4NTkxOH0.2XAF8HF315XLuMtjXo4OfZuRFHY9I4p0P6XNq8axq4Y'; 
+  token = ''; 
 
 
   user:boolean = false;
@@ -61,6 +61,7 @@ export class AdministrationComponent implements OnInit {
 
   ngOnInit(): void {
     //this.row.length = 20;
+    this.token = localStorage.getItem('token');
     this.getUsers();
     this.rowCamera.length = 4;
     this.authService.getAll().then( firebaseResponse =>{

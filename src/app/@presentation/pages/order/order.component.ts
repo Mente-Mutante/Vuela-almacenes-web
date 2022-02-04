@@ -7,6 +7,7 @@ import html2canvas from 'html2canvas';
 import { OrderService } from '../../services/order.service';
 import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { Utils } from '../../utils/utils-url';
+import { Observable } from 'rxjs';
 // import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
@@ -18,7 +19,7 @@ import { Utils } from '../../utils/utils-url';
 
 export class OrderComponent implements OnInit {
   
-  token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM1LCJpYXQiOjE2NDM4NDI3MTgsImV4cCI6MTY0Mzg4NTkxOH0.2XAF8HF315XLuMtjXo4OfZuRFHY9I4p0P6XNq8axq4Y'; 
+  token = ''; 
 
   user:boolean = false;
   showRegister:boolean = false;
@@ -31,6 +32,8 @@ export class OrderComponent implements OnInit {
   rowCamera = [];
   orders = [];
   suppliers = [];
+  paytMethods = [];
+  times = [];
   bills  = [];
   areas = [];
   items  = [];
@@ -71,7 +74,7 @@ export class OrderComponent implements OnInit {
     "sub_total" : null,
     "descuento" : null,
     "total_compra" : null,
-    "productos": []
+    "fecha_reg": null,
   }
   
 
@@ -90,9 +93,11 @@ export class OrderComponent implements OnInit {
     });
     this.itemsAdd.forEach(e=>{
       this.subTotal += Number(e.precio_bs_referencial) ;
+      console.log(e.precio_bs_referencial);
     });
     this.subTotal.toFixed(2);
     this.total = this.subTotal;
+    console.log(this.total);
     // modal-buscar-producto
     document.getElementById("btnCloseModalBuscarProducto").click();
   }
@@ -106,27 +111,40 @@ export class OrderComponent implements OnInit {
     });
   }
 
-  handleFileInput(event){
+  handleFileInput($event: any){
     // this.fileToUpload = files.item(0);
-    console.log(event);
-    this.fileToUpload = event.target.files[0];
-    console.log(this.fileToUpload);
+    // console.log(event);
+    // this.fileToUpload = event.target.files[0];
+    const [ file ] = $event.target.files;
+    this.fileToUpload  = file;
+    // console.log(this.fileToUpload);
   }
 
   uploadFile(id){ 
-    console.log(this.fileToUpload);
-    const formData = new FormData();
-    formData.append("archivo", this.fileToUpload);
-    formData.append("compraID", id);
-    formData.append("registradoPortID", '2');
-    fetch(Utils.BASE+'api/archivos',{
-      method: 'POST',
-      headers:{
-        'Content-Type':'multipart/form-data; ',
-        'x-token': this.token
-      },
-      body: formData
-    })
+    // console.log(this.fileToUpload);
+    if(this.fileToUpload == undefined){
+      alert('Debe seleccionar una archivo');
+    } else{
+      const body = new FormData();
+      body.append('archivo', this.fileToUpload);
+      body.append("compraID", id);
+      body.append("registradoPorID", '125');
+
+      this.orderService.uploadFile(body)
+      .subscribe( res => console.log(res));
+    }
+    
+
+
+    // var res = this.http.post<any>(Utils.BASE+'api/archivos',formData);
+    // fetch(Utils.BASE+'api/archivos',{
+    //   method: 'POST',
+    //   headers:{
+    //     'Content-Type':'multipart/form-data',
+    //     'x-token': this.token
+    //   },
+    //   body: formData
+    // })
     // return this.http.post<any>(Utils.BASE+'api/archivos',formData,{
     //   headers: {
     //     'Content-Type':'multipart/form-data; ',
@@ -140,6 +158,23 @@ export class OrderComponent implements OnInit {
     //     });
   }
 
+  getTimes(){
+    this.http.get<any>(Utils.BASE+'api/tiempos_entrega',{headers:{
+      'x-token':this.token
+    }}).subscribe(
+        response => {
+            this.times = response.data;
+        });
+  }
+
+  getPayMethod(){
+    this.http.get<any>(Utils.BASE+'api/formas_pago',{headers:{
+      'x-token':this.token
+    }}).subscribe(
+        response => {
+            this.paytMethods = response.data;
+        });
+  }
 
   getSupplier(){
     this.http.get<any>(Utils.BASE+'api/proveedores',{headers:{
@@ -265,44 +300,55 @@ export class OrderComponent implements OnInit {
   //luego le mando los parametros del formulario ;)
   createOrder(){
     var productos = [];
-    this.itemsAdd.forEach( e=> {
+    this.itemsAdd.map( e=> {
       productos.push({'itemID':e.itemID,'cantidad':1,'monto':e.precio_bs_referencial});
     });
     console.log(productos);
     console.log(this.subTotal.toString());
     console.log(this.total.toString());
-    return this.http.post<any>(Utils.BASE+'api/ocompra',
-    {
-      "proveedorID" : this.orderForm.proveedorID,
-      "area_solicitanteID" : this.orderForm.area_solicitanteID,
-      "clienteID" : "1",
-      "nit" : this.orderForm.nit,
-      "forma_pago" : this.orderForm.forma_pago,
-      "descripcion" : this.orderForm.descripcion,
-      "monedaID" : this.orderForm.monedaID,
-      "ticket" : this.orderForm.ticket,
-      "tiempo_entrega" : this.orderForm.tiempo_entrega,
-      "sub_total" : `${this.subTotal}`,
-      "descuento" : "0",
-      "total_compra" : `${this.total}`,
-      "productos" : productos
-  }
-    ,
-        {headers:{
-            'x-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM1LCJpYXQiOjE2NDMwMzI1NDUsImV4cCI6MTY0MzA3NTc0NX0.LWcPZo3kTds4fr4zsCqaDmwD-cpX0X58j3V3ae4zYHs'
-        }}).subscribe(  
-            response => {
-                console.log(response);
-                document.getElementById("btnCloseModalGenerarOrden").click();
-                this.getOrder();
-                return response;
-            });
+    console.log(this.orderForm);
+  //   return this.http.post<any>(Utils.BASE+'api/ocompra',
+  //   {
+  //     "proveedorID" : this.orderForm.proveedorID,
+  //     "area_solicitanteID" : this.orderForm.area_solicitanteID,
+  //     "clienteID" : "1",
+  //     "nit" : this.orderForm.nit,
+  //     "forma_pago" : this.orderForm.forma_pago,
+  //     "descripcion" : this.orderForm.descripcion,
+  //     "monedaID" : this.orderForm.monedaID,
+  //     "ticket" : this.orderForm.ticket,
+  //     "tiempo_entrega" : this.orderForm.tiempo_entrega,
+  //     "sub_total" : `${this.subTotal}`,
+  //     "descuento" : "0",
+  //     "total_compra" : `${this.total}`,
+  //     "productos" : productos
+  // }
+  //   ,
+  //       {headers:{
+  //           'x-token':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjM1LCJpYXQiOjE2NDMwMzI1NDUsImV4cCI6MTY0MzA3NTc0NX0.LWcPZo3kTds4fr4zsCqaDmwD-cpX0X58j3V3ae4zYHs'
+  //       }}).subscribe(  
+  //           response => {
+  //               console.log(response);
+  //               document.getElementById("btnCloseModalGenerarOrden").click();
+  //               this.getOrder();
+  //               return response;
+  //           });
 
+  }
+
+  setNit(i){
+    console.log(i);
+    this.suppliers.map( (e)=>{
+      if(e.proveedorID == i) this.orderForm.nit = e.nit;
+    });
   }
 
   async ngOnInit() {
+    this.token = localStorage.getItem('token');
     this.row.length = 20;
     this.rowCamera.length = 4;
+    this.getTimes();
+    this.getPayMethod();
     this.getOrder();
     this.getSupplier();
     this.getBill();

@@ -281,8 +281,8 @@
                                         Proveedor
                                     </div>
                                     <div class="col-8">
-                                        <select name="proveedor-select" id="proveedor-select" class="input-crear" [(ngModel)]="orderForm.proveedorID">
-                                            <option *ngFor="let i of suppliers" [value]="i.proveedorID">{{i.alias}} </option>
+                                        <select name="proveedor-select" id="proveedor-select" class="input-crear" [(ngModel)]="orderForm.proveedorID" (change)="setNit(orderForm.proveedorID)">
+                                            <option *ngFor="let i of suppliers" [value]="i.proveedorID">{{i.marca_alias}} </option>
                                         </select>
                                         <!-- <input type="text" class="input-crear" placeholder="Nombre completo del proovedor"> -->
                                     </div>
@@ -329,7 +329,7 @@
                                         NIT
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="000000000" [(ngModel)]="orderForm.nit">
+                                        <input type="text" class="input-crear" placeholder="000000000" [(ngModel)]="orderForm.nit" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -340,8 +340,7 @@
                                     </div>
                                     <div class="col-8">
                                         <select name="forma-pago" class="input-crear" id="form-tarjeta" [(ngModel)]="orderForm.forma_pago">
-                                            <option value="Tarjeta de crédito Visa">Tarjeta de crédito visa</option>
-                                            <option value="Al contado">Al contado</option>
+                                            <option *ngFor="let i of paytMethods" [value]="i.forma_pagoID">{{i.descripcion}}</option>
                                         </select>
                                         <!-- <input type="text" class="input-crear" placeholder="Tarjeta de crédito Visa"> -->
                                     </div>
@@ -387,7 +386,10 @@
                                         Tiempo de entrega
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Tiempo en el que se hizo la entrega" [(ngModel)]="orderForm.tiempo_entrega">
+                                        <select name="proveedor-select" id="proveedor-select" class="input-crear" [(ngModel)]="orderForm.tiempo_entrega">
+                                            <option *ngFor="let i of times" [value]="i.tiempo_entrega_ID">{{i.descripcion}} </option>
+                                        </select>
+                                        <!-- <input type="text" class="input-crear" placeholder="Tiempo en el que se hizo la entrega" [(ngModel)]="orderForm.tiempo_entrega"> -->
                                     </div>
                                 </div>
                             </div>
@@ -562,7 +564,7 @@
                                       <td class="cell celda_blanca"> 1 </td>
                                       <td class="cell celda_blanca"> 1 </td>
                                       <td class="cell celda_blanca"> {{i.precio_bs_referencial}} </td>
-                                      <td class="cell celda_blanca"> 20.4 BS </td>
+                                      <td class="cell celda_blanca"> {{1 * i.precio_bs_referencial}} BS </td>
                                       <td class="cell celda_blanca" style="background-color: #C31313; cursor: pointer;" (click)="deleteItem(i.itemID)"> <i class="bi bi-trash" style="color: white;"></i> </td>
                                     </tr>
                                   </tbody>
@@ -736,7 +738,7 @@
                                     </div>
                                     <div class="col-8">
                                         <select name="proveedor-select" id="proveedor-select" class="input-crear" [(ngModel)]="orderDetail.proveedorID" disabled>
-                                            <option *ngFor="let i of suppliers" [value]="i.proveedorID">{{i.alias}} </option>
+                                            <option *ngFor="let i of suppliers" [value]="i.proveedorID">{{i.marca_alias}} </option>
                                         </select>
                                     </div>
                                 </div>
@@ -767,10 +769,10 @@
                             <div class="col-6 mt-3">
                                 <div class="row">
                                     <div class="col-4">
-                                        <p class="label-modal-estado">Fecha</p>
+                                        <p class="label-modal-estado">Fecha {{orderDetail.fecha_reg}}</p>
                                     </div>
                                     <div class="col-7">
-                                        <input type="date" class="input-crear" placeholder="Fecha" [(ngModel)]="orderDetail.fecha_reg" disabled>
+                                        <input type="text" value ="{{orderDetail.fecha_reg}}"  class="input-crear" placeholder="Fecha"  disabled>
                                         <!-- <input type="text" class="input" placeholder="Área solicitante ingresada" disabled> -->
                                     </div>
                                 </div>
@@ -792,7 +794,10 @@
                                         <p class="label-modal-estado">Forma de pago</p>
                                     </div>
                                     <div class="col-7">
-                                        <input type="text" class="input-crear" placeholder="Nit" value="{{orderDetail.forma_pago}}" disabled>
+                                        <select name="forma-pago" class="input-crear" id="form-tarjeta" [(ngModel)]="orderDetail.forma_pago" disabled>
+                                            <option *ngFor="let i of paytMethods" [value]="i.forma_pagoID">{{i.descripcion}}</option>
+                                        </select>
+                                        <!-- <input type="text" class="input-crear" placeholder="Nit" value="{{orderDetail.forma_pago}}" disabled> -->
                                     </div>
                                 </div>
                             </div>
@@ -836,7 +841,10 @@
                                         <p class="label-modal-estado">Tiempo de entrega</p>
                                     </div>
                                     <div class="col-7">
-                                        <input type="text" class="input-crear" placeholder="Nit" value="{{orderDetail.tiempo_entrega}}" disabled>
+                                        <select name="proveedor-select" id="proveedor-select" class="input-crear" [(ngModel)]="orderDetail.tiempo_entrega" disabled>
+                                            <option *ngFor="let i of times" [value]="i.tiempo_entrega_ID">{{i.descripcion}} </option>
+                                        </select>
+                                        <!-- <input type="text" class="input-crear" placeholder="Nit" value="{{orderDetail.tiempo_entrega}}" disabled> -->
                                     </div>
                                 </div>
                             </div>
@@ -981,14 +989,14 @@
                     <!-- <button class="btn btn-usuarios" data-toggle="modal" data-target="#modal">+ Crear usuario</button> -->
 
 
-                    <div class="col-3 p-0">
+                    <!-- <div class="col-3 p-0">
                         <input type="text" class="form-control input-search" id="search" placeholder="Buscar">
-                    </div>
+                    </div> -->
                     <div class="col-3 p-0 mt-1">
                         <i class="bi bi-funnel-fill ml-20 i-filter"></i>
                         <span class="txt-filter" data-toggle="modal" data-target="#modal-filtro">Filtrar</span>
                     </div>
-                    <div class="col-6 p-0">
+                    <div class="col-9">
                         <button class="btn btn-crear-orden" data-toggle="modal" data-target="#modal-crear-orden" (click)="logorder()">Crear orden de compra</button>
                         <!-- <button class="btn btn-eliminar-orden" data-toggle="modal" data-target="#modal-eliminar-orden">Eliminar orden de compra</button> -->
                     </div>
@@ -1015,7 +1023,7 @@
                                     <td class="cell"><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-doc" (click)="getOrderDetail(i.compraID)">Ver</a></td>
                                     
                                     <td class="cell">
-                                        <select class="form-control select-estado" [value]="i.estado" disabled>
+                                        <select class="form-control select-estado" [value]="i.estado" >
                                             <option>Enviado</option>
                                             <option>Creado</option>
                                             <option>Eliminado</option>  
@@ -1036,7 +1044,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-12 mt-3">
-                                                  <table class="table ">
+                                                <p *ngIf="files.length === 0" style="color: black;">No hay archivos adjuntos</p>
+                                                  <table class="table " *ngIf="files.length != 0">
                                                       <thead>
                                                           <tr>
                                                               <th>Nombre de archivo</th>
@@ -1076,7 +1085,7 @@
                                                           <!-- <input type="file" (change)="handleFileInput($event)"> -->
                                                         </div>
                                                         <div class="container mt-3 mb-3">
-                                                            <button class="btn btn-modal-generar-orden" data-dismiss="modal" (click)="uploadFile(12)">Subir<i class="bi bi-x-lg" style="color: white;"></i></button>
+                                                            <button class="btn btn-modal-generar-orden" data-dismiss="modal" (click)="uploadFile(i.compraID)">Subir<i class="bi bi-x-lg" style="color: white;"></i></button>
                                                         </div>
                                                       </div>
                                                     </div>

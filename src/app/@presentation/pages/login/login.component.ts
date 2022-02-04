@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { HttpClient,HttpErrorResponse } from '@angular/common/http';
+import { Utils } from '../../utils/utils-url';
 
 import Swal from 'sweetalert2';
 
@@ -20,10 +22,14 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService : AuthService
+    private authService : AuthService,
+    private http: HttpClient
     ) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('token') !== null){
+      this.router.navigate(["/order"]);
+    }
   }
 
   ingresarConGoogle(){
@@ -33,7 +39,15 @@ export class LoginComponent implements OnInit {
     this.authService.loginWithGoogle( email, password ).then(res=>{
       console.log("resultado de respuesta: " , res);
       if ( res ) {
-        this.router.navigate(["/order"]);
+        this.http.post<any>(Utils.BASE+'api/login',{
+          'usuario':'amenas',
+          'password':'amenas'
+        },).subscribe(
+          res=>{
+            localStorage.setItem('token',res.token);
+            this.router.navigate(["/order"]);
+          }
+        );
       }
       else{
         this.authService.logout();
