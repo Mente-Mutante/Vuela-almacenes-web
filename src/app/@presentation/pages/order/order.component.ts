@@ -30,6 +30,8 @@ export class OrderComponent implements OnInit {
 
   public codigo:any = 123;
 
+
+
   fileInput: any;
   user:boolean = false;
   showRegister:boolean = false;
@@ -379,6 +381,17 @@ export class OrderComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.http.post<any>(Utils.BASE+'api/login',{
+      'usuario':'amenas',
+      'password':'amenas'
+    },).subscribe(
+      res=>{
+        localStorage.setItem('token',res.token);
+      },
+      err =>{
+        console.log(err);
+      }
+    );
     this.token = localStorage.getItem('token');
     this.row.length = 20;
     this.rowCamera.length = 4;
