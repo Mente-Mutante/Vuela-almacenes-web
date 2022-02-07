@@ -1,0 +1,221 @@
+<div class="col-12">
+<div class="col-12 p-5 pb-3">
+    <table class="table table-bordered">
+      <tr>
+        <td rowspan="2"><img src="assets/images/Grupo 6.svg" alt=""></td>
+        <td rowspan="2" class="cell">ORDEN DE COMPRA</td>
+        <td colspan="1" class="cell-active">CÓDIGO</td>
+      </tr>
+      <tr>
+        <td class="cell-code">{{codigo}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <!--div_datos-->
+  <div class="col-12 p-5 pt-0">
+    <div class="row">
+
+      <div class="col-6">
+        <div class="row">
+          <div class="col-4">
+            <p class="label-input">Proveedor</p>
+          </div>
+          <div class="col-8">
+            <p class="input">{{proveedor}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="row">
+          <div class="col-4">
+            <p class="label-input">Área solicitante</p>
+          </div>
+          <div class="col-8">
+            <p class="input">{{area}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 mt-2">
+        <div class="row">
+          <div class="col-4">
+            <p class="label-input">Facturar a</p>
+          </div>
+          <div class="col-8">
+            <p class="input">{{facturar}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 mt-2">
+        <div class="row">
+          <div class="col-4">
+            <p class="label-input">Fecha</p>
+          </div>
+          <div class="col-8">
+            <p class="input">{{fecha}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 mt-2">
+        <div class="row">
+          <div class="col-4">
+            <p class="label-input">NIT</p>
+          </div>
+          <div class="col-8">
+            <p class="input">{{nit}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 mt-2">
+        <div class="row">
+          <div class="col-4">
+            <p class="label-input">Forma de pago</p>
+          </div>
+          <div class="col-8">
+            <p class="input">{{forma_pago}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 mt-2">
+        <div class="row">
+          <div class="col-4">
+            <p class="label-input">Descripción</p>
+          </div>
+          <div class="col-8">
+            <p class="input">{{descripcion}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 mt-2">
+        <div class="row">
+          <div class="col-4">
+            <p class="label-input">Moneda</p>
+          </div>
+          <div class="col-8">
+            <p class="input">{{moneda}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 mt-2">
+        <div class="row">
+          <div class="col-4">
+            <p class="label-input">Ticket</p>
+          </div>
+          <div class="col-8">
+            <p class="input">{{ticket}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 mt-2">
+        <div class="row">
+          <div class="col-4">
+            <p class="label-input">Tiempo de entrega</p>
+          </div>
+          <div class="col-8">
+            <p class="input">{{entrega}}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!--div_items-->
+
+  <div class="col-12 p-5 pt-0 pb-3">
+    <table class="table table-bordered light">
+      <thead>
+        <tr>
+          <td rowspan="2">ITEM</td>
+          <td rowspan="2">SKU</td>
+          <td rowspan="2">CÓDIGO DE FÁBRICA</td>
+          <td rowspan="2" >MARCA</td>
+          <td rowspan="2">DESCRIPCIÓN</td>
+          <td colspan="4">PEDIDO</td>
+        </tr>
+        <tr>
+          <td>UNIDAD</td>
+          <td>CANTIDAD</td>
+          <td>PRECIO UNITARIO BS</td>
+          <td>PRECIO TOTAL BS</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of items">
+          <td class="cell-id">1</td>
+          <td>422 8484</td>
+          <td>121EEC1</td>
+          <td>MARCA 1</td>
+          <td>BUT I MUST HAVE EXPLAIN DESCRIPTION TO THIS ORDER</td>
+          <td>1</td>
+          <td>1</td>
+          <td>20.4 BS</td>
+          <td>20.4 BS</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!--div_precios-->
+  <div class="col-6 p-5 pt-3">
+    <div class="row">
+      <div class="col-4 div-dark">
+        SUB TOTAL
+      </div>
+      <div class="col-8 div-light">
+        {{subtotal}}
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-4 div-dark">
+        DESCUENTO
+      </div>
+      <div class="col-8 div-light">
+        0.00 BS
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-4 div-dark">
+        TOTAL
+      </div>
+      <div class="col-8 div-light">
+        {{total}} BS
+      </div>
+    </div>
+  </div>
+
+  <!--div_solicitante-->
+  <div class="col-12 p-5 pt-0">
+    <table class="table table-bordered light">
+      <thead>
+        <tr>
+          <td>Solicitante</td>
+          <td>Administración</td>
+          <td>Conformidad de almacen</td>
+          <td>IMPORTANTE</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Leonardo Rafael Quispe Pacheco</td>
+          <td>Leonardo Rafael Quispe Pacheco</td>
+          <td>CONFORME</td>
+          <td>1. But i have explain But i have explain 
+            <br> 2 . But i have explain But i have explain 
+            <br> 3. But i have explain But i have explain</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
+ </div>

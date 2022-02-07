@@ -279,20 +279,20 @@
                     <!-- <button class="btn btn-usuarios" data-toggle="modal" data-target="#modal">+ Crear usuario</button> -->
                     
                     
-                    <div class="col-3 p-0">
+                    <!-- <div class="col-3 p-0">
                         <input type="text" class="form-control input-search" id="search" placeholder="Buscar código">  
-                    </div>
-                    <div class="col-3 p-0 mt-1">
+                    </div> -->
+                    <div class="col-3 p-0 mt-1 m-0">
                         <i class="bi bi-funnel-fill ml-20 i-filter"></i>
                         <span class="txt-filter">Filtrar por fecha</span>
                     </div>
-                    <div class="col-6 p-0">
+                    <div class="col-9 p-0">
                         <!-- <button class="btn btn-crear-orden" data-toggle="modal" data-target="#modal">Crear orden de compra</button> -->
                     </div>
                     
                     <div class="col-12 table-scroll mt-3" id="table-user">
                         <button class="btn-tab-active" id="btn-pendientes" data-toggle="modal" data-target="#modal" (click)="changeTab('btn-pendientes')">Pendientes</button>
-                        <button class="btn-tab-inactive" id="btn-procesados" data-toggle="modal" data-target="#modal" (click)="changeTab('btn-procesados')">Procesados</button>
+                        <button class="btn-tab-inactive" id="btn-procesados" data-toggle="modal" data-target="#modal" (click)="changeTab('btn-procesados')">Aprobado</button>
 
                         <!-- <button></button> -->
                         <table class="table table-bordered" *ngIf="orders.length !== 0">
@@ -306,7 +306,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let i of orders">
-                                    <td class="cell">{{i.compraID}}</td>
+                                    <td class="cell">{{i.codigo}}</td>
                                     <td class="cell">{{i.fecha_reg }}</td>
                                     <!-- <td class="cell"><a href="">Ver</a></td> -->
                                     <!-- <td class="cell " data-toggle="modal" data-target="#modal-estado"> <div class="col-2 p-0">
@@ -339,9 +339,9 @@
                                     </td> -->
                                     <td class="cell">
                                         <select class="form-control select-estado" [value]="i.estado_autorizado" (change)="changeState(i.compraID,i.estado_autorizado)" [(ngModel)]="i.estado_autorizado">
-                                            <option value="Pendiente">Pendiente</option>
+                                            <option value="Pendiente" *ngIf="i.estado_autorizado != 'Aprobado'  && i.estado_autorizado != 'Rechazado' ">Pendiente</option>
                                             <option value="Aprobado">Aprobado</option>
-                                            <option value="Procesado">Procesado</option>
+                                            <option value="Procesado">Rechazado</option>
                                           </select>
                                     </td>
                                     <td class="cell-active text-center" data-toggle="modal" data-target="#modal-pago" (click)="getOrderDetail(i.compraID)">Ver detalle
@@ -357,6 +357,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <br><br>
                         <p *ngIf="orders.length == 0">No existen ordenes de compra</p>
 
                     </div>

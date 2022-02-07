@@ -19,31 +19,49 @@
                                     <table class="table table-filter m-0">
                                         <thead>
                                             <tr>
-                                                <th>Filtro por estado</th>
+                                                <th>Filtro por periodo</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <div class="col-12 text-center">
-                                                <div class="" style="background-color: #FFE9E1; padding: 5px">
-                                                    <div class="col-2">
+                                                <div class="col-12" style="background-color: #FFE9E1; padding: 5px">
+                                                    <!-- <div class="col-2">
                                                         <input style="float: left;" type="radio" class="radio-modal" name="opt-estado" id="opt-estado" >
                                                     </div>
                                                     <div class="col-10" style="text-align: right;">
                                                         <label for="opt-estado" class="radio-inline" style="color: #E27B55; font-weight: 500;">
                                                             Creado
                                                             </label> 
+                                                    </div> -->
+                                                    <div class="row">
+                                                        <div class="col-4 p-0">
+                                                            <p>Desde:</p>
+                                                        </div>
+                                                        <div class="col-8">
+                                                            <input class="input-crear" type="date"  [(ngModel)]="dateStart">
+                                                        </div>
                                                     </div>
+                                                   
                                                 </div>
     
-                                                <div class="" style="background-color: #F1F1F1; padding: 5px">
-                                                    <div class="col-2">
+                                                <div class="col-12" style="background-color: #F1F1F1; padding: 5px">
+                                                    <!-- <div class="col-2">
                                                         <input style="float: left;" type="radio" class="radio-option" name="opt-estado" id="opt-estado">
                                                     </div>
                                                     <div class="col-10" style="text-align: right;">
                                                         <label for="opt-estado" class="radio-inline" style="color: #999999; font-weight: 500;">
                                                             Enviado
                                                             </label> 
+                                                    </div> -->
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <p>Hasta:</p>
+                                                        </div>
+                                                        <div class="col-8">
+                                                            <input class="input-crear" type="date" [(ngModel)]="dateEnd">
+                                                        </div>
                                                     </div>
+                                                    
                                                 </div>
                                                
                                             </div>
@@ -58,12 +76,16 @@
                                     <table class="table table-filter m-0">
                                         <thead>
                                             <tr>
-                                                <th>Filtro por período</th>
+                                                <th>Filtro por estado</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
                                             <div class="col-12 text-center">
-                                                <div class="" style="background-color: #FFE9E1; padding: 5px">
+                                                <select class="form-control input-crear" name="select-modal-filter" id="select-modal-filter" [(ngModel)]="stateFilter">
+                                                    <option value="Creado">Creado</option>
+                                                    <option value="Enviado">Enviado</option>
+                                                    <option value="Elminado">Eliminado</option>
+                                                </select>
+                                                <!-- <div class="" style="background-color: #FFE9E1; padding: 5px">
                                                     <div class="col-2">
                                                         <input style="float: left;" type="radio" class="radio-modal" name="optradio" id="id1" [(ngModel)]="periodo">
                                                     </div>
@@ -103,20 +125,19 @@
                                                             Mes anterior
                                                             </label> 
                                                     </div>
-                                                </div>
+                                                </div> -->
     
                                             </div>
 
                                          
-                                        </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="container mt-3 mb-3 text-center">
-                        <button class="btn btn-reject" data-dismiss="modal">Limpiar campos</button>
-                        <button class="btn btn-success ml-20" data-dismiss="modal">Buscar</button>
+                        <button class="btn btn-reject" (click)="cleanFilter()">Limpiar campos</button>
+                        <button class="btn btn-success ml-20" data-dismiss="modal" (click)="filterOrder()">Buscar</button>
                     </div>
                   </div>
                 </div>
@@ -181,6 +202,10 @@
                   </div>
                 </div>
               </div> -->
+              
+
+            
+
 
 
               <div class="modal fade" id="modal-comentarios" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
@@ -950,10 +975,30 @@
                         <span style="font-weight: normal;"> <span> Área de logística </span></span>
                       </div>
                       <div class="col-md-2" style="text-align: right;">
-                        <button class="btn btn-block" style="background-color: black; color: white;" (click)="downloadPdf();"> Descargar PDF &nbsp; &nbsp; &nbsp; &nbsp;<i class="bi bi-download"></i></button>
+                        <button class="btn btn-block" style="background-color: black; color: white;" (click)="downloadPdf()"> Descargar PDF &nbsp; &nbsp; &nbsp; &nbsp;<i class="bi bi-download"></i></button>
+
+                        <!-- <button class="btn btn-block" style="background-color: black; color: white;" data-toggle="modal" data-target="#modal-recibo"> Descargar PDF &nbsp; &nbsp; &nbsp; &nbsp;<i class="bi bi-download"></i></button> -->
                       </div>
                     </div>
 
+                    <div class="modal fade" id="modal-recibo" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                        <div class="modal-dialog " style="max-width: 80%;">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="container text-center">
+                                    <p class="txt-modal-header">Recibo</p>
+                                    <p class="txt-sub-modal-header">Visualización de recibo</p>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-3">
+                                <!-- <app-document [codigo]="codigo" [proveedor]="orderDetail.proveedor" []></app-document> -->
+                            </div>
+                            <div class="container mt-3 mb-3">
+                                <button class="btn btn-modal-generar-orden" data-dismiss="modal">Descargar recibo<i class="bi bi-x-lg" style="color: white;"></i></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
                     <!-- <div class="container mt-3">
                         <div class="row">
@@ -1002,7 +1047,8 @@
                     </div>
 
                     <div class="col-12 table-scroll mt-3" id="table-user">
-                        <table class="table table-bordered">
+                        <p *ngIf="orders.length == 0">No hay ordenes de compra</p>
+                        <table class="table table-bordered" *ngIf="orders.length != 0">
                             <thead>
                                 <tr>
                                     <th class="th-first">Código</th>
@@ -1017,17 +1063,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let i of orders">
+                                <tr *ngFor="let i of orders  | paginate: {itemsPerPage: 20 , currentPage : page,
+                                    totalItems: length}">
                                     <td class="cell">{{i.codigo}}</td>
                                     <td class="cell">{{i.fecha_reg}}</td>
                                     <td class="cell"><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-doc" (click)="getOrderDetail(i.compraID)">Ver</a></td>
                                     
                                     <td class="cell">
-                                        <select class="form-control select-estado" [value]="i.estado" >
-                                            <option>Enviado</option>
-                                            <option>Creado</option>
-                                            <option>Eliminado</option>  
-                                          </select>
+                                        <select class="form-control select-estado" (change)="changeOrderStatus(i.compraID,i.estado)" [(ngModel)]="i.estado" *ngIf="i.estado != 'Autorizado'">
+                                            <option value="Enviado">Enviado</option>
+                                            <option value="Creado" *ngIf="i.estado !='Enviado' && i.estado != 'Eliminado' ">Creado</option>
+                                            
+                                            <option value="Eliminado">Eliminado</option>  
+                                        </select>
+                                        <select name="" class="form-control select-estado"  [(ngModel)]="i.estado" *ngIf="i.estado == 'Autorizado'">
+                                            <option value="Autorizado" disabled>Autorizado</option>
+                                        </select>
                                     </td>
                                     <td class="cell">B2C</td>
                                     <td class="cell">{{i.descripcion}}</td>
@@ -1081,7 +1132,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-12 mt-3">
-                                                            <input (change)="handleFileInput($event)" #fileInput type="file" accept=".pdf" name="pdf-file" id="pdf-file" class="form-control datepicker" placeholder="Selecciona un archivo pdf">
+                                                            <input (change)="handleFileInput($event)" [(ngModel)]="fileInput" type="file" accept=".pdf" name="pdf-file" id="pdf-file" class="form-control datepicker" placeholder="Selecciona un archivo pdf">
                                                           <!-- <input type="file" (change)="handleFileInput($event)"> -->
                                                         </div>
                                                         <div class="container mt-3 mb-3">
@@ -1138,7 +1189,12 @@
                             </tbody>
                         </table>
                     </div>
-
+                    <div *ngFor="let i of orders | paginate: {itemsPerPage: 20 , currentPage : page,
+                    totalItems: length}" >
+                        <!-- <p><b>{{i.title}}</b></p> -->
+                    </div>
+                    <pagination-controls class="text-right mt-2 my-pagination" (pageChange)="page = $event" previousLabel=""
+                    nextLabel="" *ngIf="orders.length !== 0"></pagination-controls>
                 </div>
             </div>
         </div>

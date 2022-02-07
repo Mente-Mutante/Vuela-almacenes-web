@@ -21,6 +21,16 @@ export class OrderComponent implements OnInit {
   
   token = ''; 
 
+  dateStart: any;
+  dateEnd: any;
+  stateFilter: any = 'Creado';
+
+  page = 1;
+  length: any;
+
+  public codigo:any = 123;
+
+  fileInput: any;
   user:boolean = false;
   showRegister:boolean = false;
   showDetail:boolean = false;
@@ -131,7 +141,7 @@ export class OrderComponent implements OnInit {
       body.append("registradoPorID", '125');
 
       this.orderService.uploadFile(body)
-      .subscribe( res => console.log(res));
+      .subscribe( res => this.fileInput = null);
     }
     
 
@@ -156,6 +166,23 @@ export class OrderComponent implements OnInit {
     //         console.log(response);
     //         // this.getOrder();
     //     });
+  }
+
+  changeOrderStatus(id,estado){
+    console.log(estado);
+    return this.http.put<any>(Utils.BASE+'api/estadooc/'+id,
+    {
+      "estado": estado
+    },
+    {headers:{
+      'x-token':this.token
+    }}).subscribe(
+        response => {
+            this.getOrder();
+        },
+        err=> {
+          this.getOrder();
+        });
   }
 
   getTimes(){
@@ -185,14 +212,18 @@ export class OrderComponent implements OnInit {
         });
   } 
 
-  filterOrder(start, end) {
+  filterOrder() {
     //2022-01-25
-    this.http.get(Utils.BASE+'pi/ocompra?estado=Pendiente&desde='+start+'&hasta='+end+'',{headers:{
+    // console.log(this.dateStart);
+    this.http.get(Utils.BASE+'api/ocompra?estado='+this.stateFilter+'&hasta='+this.dateEnd+'&desde='+this.dateStart+'',{headers:{
       'x-token':this.token
     }}).subscribe(
         (response:any) => {
             this.orders = [];
             this.orders  = response.data;
+        },
+        err =>{
+          
         });
   }
 
@@ -202,6 +233,11 @@ export class OrderComponent implements OnInit {
     }}).subscribe(
         (response:any) => {
             this.orders  = response.data;
+            this.length = response.data.length;
+        },
+        err =>{
+          this.orders = [];
+          this.length = 0;
         });
   }
 
@@ -292,7 +328,6 @@ export class OrderComponent implements OnInit {
       'x-token':this.token
     }}).subscribe(
         response => {
-            console.log(response);
             this.getOrder();
         });
   }
@@ -435,6 +470,12 @@ export class OrderComponent implements OnInit {
     }).then((docResult) => {
       docResult.save(`${new Date().toISOString()}.pdf`);
     });  
+  }
+
+  cleanFilter(){
+    this.dateStart = null;
+    this.dateEnd = null;
+    this.stateFilter = 'Creado';
   }
 }
 

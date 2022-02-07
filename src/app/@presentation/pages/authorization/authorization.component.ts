@@ -52,7 +52,7 @@ export class AuthorizationComponent implements OnInit {
 
   getPendientes(){
     this.orders = [];
-    this.http.get(Utils.BASE+'api/autorizacionespend?desde=2022-01-24&hasta=2022-01-28&estado=Pendiente',{headers:{
+    this.http.get(Utils.BASE+'api/autorizacionespend?desde=&hasta=&estado=',{headers:{
       'x-token':this.token
     }}).subscribe(
         (response:any) => {
@@ -62,7 +62,7 @@ export class AuthorizationComponent implements OnInit {
 
   getProcesados(){
     this.orders = [];
-    this.http.get(Utils.BASE+'api/autorizacionesproc?desde=2022-01-24&hasta=2022-01-28',{headers:{
+    this.http.get(Utils.BASE+'api/autorizacionesproc?desde=&hasta=',{headers:{
       'x-token':this.token
     }}).subscribe(
         (response:any) => {

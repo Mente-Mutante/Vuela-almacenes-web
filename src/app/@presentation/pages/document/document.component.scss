@@ -1,0 +1,111 @@
+.label-input{
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 15px;
+    color: black;
+    text-align: left;
+    margin: auto 0px;
+    padding: 5px 0px;
+  }
+  .input{
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 14px;
+    color: #717171;
+    margin: auto 0px;
+    text-decoration: underline #717171;
+    text-align: left;
+    padding: 5px 0px;
+  }
+  .table-bordered{
+    border-color: black;
+  }
+  .table-bordered.light > thead{
+    border-color: #CBCBCB;
+    background-color: #707070 !important;
+    color: white;
+    font-family: 'Poppins';
+    margin: auto;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 13px;
+  }
+  .table-bordered.light > tbody > tr > td{
+    border-color: #CBCBCB;
+    background-color: white !important;
+    color: #555555;
+    font-family: 'Poppins';
+    margin: auto;
+    padding: 20px 0px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 13px;
+  }
+  .table-bordered.light > tbody > tr > td.cell-id{
+    border-color: #CBCBCB;
+    background-color: #A4A4A4 !important;
+    color: white;
+    font-family: 'Poppins';
+    margin: auto;
+    padding: 20px 0px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 14px;
+  }
+  .table-bordered > tbody> tr > td{
+    border-color: black;
+    border-bottom-width: 1px !important;
+  }
+  .cell{
+    font-family: 'Poppins';
+    font-weight: 800;
+    font-size: 17px;
+    margin: auto;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .cell-active{
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 16px;
+    margin: auto;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #D0421C !important;
+    color: white;
+  }
+  .cell-code{
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 16px;
+    margin: auto;
+    vertical-align: middle;
+    text-align: center;
+  }
+  .div-dark{
+    border-color: #707070;
+    border-width: 0.5px;
+    border-style: solid;
+    background-color: #707070 !important;
+    color: white;
+    font-family: 'Poppins';
+    font-weight: 600; 
+    padding: 15px 0px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 13px;
+  }
+  .div-light{
+    border-color: #707070;
+    border-width: 0.5px;
+    border-style: solid;
+    background-color: white !important;
+    color: #707070;
+    font-family: 'Poppins';
+    font-weight: 600;
+    
+    padding: 15px 0px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 13px;
+  }

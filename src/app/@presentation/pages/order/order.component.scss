@@ -1054,3 +1054,9 @@ table.table-bordered > tbody > tr > .cell.light{
     margin: auto !important;
     vertical-align: middle !important;
 }
+.my-pagination{
+    color: #D95A2B;
+    .current{
+        background: #000000 !important;
+    }
+}

@@ -19,7 +19,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 
+import {NgxPaginationModule} from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DocumentComponent } from './@presentation/pages/document/document.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,13 +30,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     OrderComponent,
     AuthorizationComponent,
-    AdministrationComponent
+    AdministrationComponent,
+    DocumentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    NgxPaginationModule,
     // AngularEditorModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FormsModule,
