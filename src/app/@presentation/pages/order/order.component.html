@@ -429,14 +429,14 @@
 
                         <!--BUSCADOR CAMPOS-->
 
-                        <!-- <div class="row mt-3">
+                        <div class="row mt-3">
                             <div class="col-3">
                                 <div class="row">
                                     <div class="col-4 label-modal">
                                         SKU
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Ingrese texto">
+                                        <input type="text" class="input-crear" placeholder="Ingrese texto" [(ngModel)]="itemForm.sku" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -446,7 +446,7 @@
                                         Código de fabrica
                                     </div>
                                     <div class="col-6">
-                                        <input type="text" class="input-crear" placeholder="Ingrese texto">
+                                        <input type="text" class="input-crear" placeholder="Ingrese texto" [(ngModel)]="itemForm.codigo_de_fabrica" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -456,7 +456,7 @@
                                         Marca
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Ingrese texto">
+                                        <input type="text" class="input-crear" placeholder="Ingrese texto" [(ngModel)]="itemForm.marca" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -466,22 +466,22 @@
                                         Descripción
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Ingrese texto">
+                                        <input type="text" class="input-crear" placeholder="Ingrese texto" [(ngModel)]="itemForm.nombre_item" disabled>
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
+                        </div> 
 
                         <!-- <div class="divider-modal" style="margin-top: 20px;"></div> -->
                         
-                        <!-- <div class="row mt-3" style="margin-top: 10px;">
+                        <div class="row mt-3" style="margin-top: 10px;">
                             <div class="col-2">
                                 <div class="row">
                                     <div class="col-4 label-modal">
                                         Unidad
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Ingrese texto">
+                                        <input type="text" class="input-crear" placeholder="Ingrese texto" [(ngModel)]="itemForm.unidad" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -491,7 +491,7 @@
                                         Cantidad
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Ingrese texto">
+                                        <input type="text" class="input-crear" placeholder="Ingrese texto" [(ngModel)]="itemForm.cantidad" (change)="changeCantidad(itemForm.cantidad)">
                                     </div>
                                 </div>
                             </div>
@@ -501,7 +501,7 @@
                                         Precio Unitario BS
                                     </div>
                                     <div class="col-6">
-                                        <input type="text" class="input-crear" placeholder="Ingrese texto">
+                                        <input type="text" class="input-crear" placeholder="Ingrese texto" [(ngModel)]="itemForm.precio_bs_referencial" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -511,7 +511,7 @@
                                         Precio Total BS
                                     </div>
                                     <div class="col-6">
-                                        <input type="text" class="input-crear" placeholder="Ingrese texto">
+                                        <input type="text" class="input-crear" placeholder="Ingrese texto" [(ngModel)]="itemForm.total" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -521,20 +521,20 @@
                                         Sub total
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Ingrese texto">
+                                        <input type="text" class="input-crear" placeholder="Ingrese texto" [(ngModel)]="itemForm.subtotal" disabled>
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
+                        </div> 
 
-                        <!-- <div class="row mt-3" style="margin-top: 10px;">
+                         <div class="row mt-3" style="margin-top: 10px;">
                             <div class="col-2">
                                 <div class="row">
                                     <div class="col-4 label-modal">
                                         Total BS
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" class="input-crear" placeholder="Ingrese texto">
+                                        <input type="text" class="input-crear" placeholder="Ingrese texto" [(ngModel)]="itemForm.total" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -544,19 +544,19 @@
                                         Descuento
                                     </div>
                                     <div class="col-7">
-                                        <input type="text" class="input-crear" placeholder="Ingrese texto">
+                                        <input type="text" class="input-crear" placeholder="Ingrese texto" [(ngModel)]="itemForm.descuento" disabled>
                                     </div>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
 
                         <!--BTN BUSCAR-->
-                        <!-- <div class="row mt-4">
+                        <div class="row mt-4">
                             <div class="col-md-10"></div>
                             <div class="col-md-2" style="text-align: right;">
-                                <button class="btn btn-block" style="background-color: #D95A2B; color: white;"> Añadir Item &nbsp; &nbsp; &nbsp; &nbsp;<i style="font-size: 16px;" class="bi bi-plus"></i></button>
+                                <button class="btn btn-block" style="background-color: #D95A2B; color: white;" (click)="addItem()"> Añadir Item &nbsp; &nbsp; &nbsp; &nbsp;<i style="font-size: 16px;" class="bi bi-plus"></i></button>
                               </div>
-                        </div> -->
+                        </div>
 
                         <div class="row mt-4">
                             <div class="col-12 mt-3" id="table-user">
@@ -582,14 +582,14 @@
                                     <tr *ngFor="let i of itemsAdd; index as idx">
                                       <th style="background-color: #A4A4A4;
                                       color: white;" class="cell">{{idx + 1}}</th>
-                                      <td class="cell celda_blanca">{{i.itemID}}</td>
+                                      <td class="cell celda_blanca">{{i.sku}}</td>
                                       <td class="cell celda_blanca"> {{i.codigo_de_fabrica}} </td>
                                       <td class="cell celda_blanca"> {{i.marca}} </td>
                                       <td class="cell celda_blanca"> {{i.nombre_item}} </td>
-                                      <td class="cell celda_blanca"> 1 </td>
-                                      <td class="cell celda_blanca"> 1 </td>
+                                      <td class="cell celda_blanca"> {{i.unidad}} </td>
+                                      <td class="cell celda_blanca"> {{i.cantidad}} </td>
                                       <td class="cell celda_blanca"> {{i.precio_bs_referencial}} </td>
-                                      <td class="cell celda_blanca"> {{1 * i.precio_bs_referencial}} BS </td>
+                                      <td class="cell celda_blanca"> {{i.cantidad * i.precio_bs_referencial}} BS </td>
                                       <td class="cell celda_blanca" style="background-color: #C31313; cursor: pointer;" (click)="deleteItem(i.itemID)"> <i class="bi bi-trash" style="color: white;"></i> </td>
                                     </tr>
                                   </tbody>
@@ -1070,14 +1070,15 @@
                                     <td class="cell"><a href="javascript:void(0)" data-toggle="modal" data-target="#modal-doc" (click)="getOrderDetail(i.compraID)">Ver</a></td>
                                     
                                     <td class="cell">
-                                        <select class="form-control select-estado" (change)="changeOrderStatus(i.compraID,i.estado)" [(ngModel)]="i.estado" *ngIf="i.estado != 'Autorizado'">
+                                        <select class="form-control select-estado" (change)="changeOrderStatus(i.compraID,i.estado)" [(ngModel)]="i.estado" *ngIf="i.estado != 'Autorizado' && i.estado != 'Rechazado' ">
                                             <option value="Enviado">Enviado</option>
                                             <option value="Creado" *ngIf="i.estado !='Enviado' && i.estado != 'Eliminado' ">Creado</option>
                                             
                                             <option value="Eliminado">Eliminado</option>  
                                         </select>
-                                        <select name="" class="form-control select-estado"  [(ngModel)]="i.estado" *ngIf="i.estado == 'Autorizado'">
+                                        <select name="" class="form-control select-estado"  [(ngModel)]="i.estado" *ngIf="i.estado == 'Autorizado' || i.estado == 'Rechazado' " disabled>
                                             <option value="Autorizado" disabled>Autorizado</option>
+                                            <option value="Rechazado" disabled>Rechazado</option>
                                         </select>
                                     </td>
                                     <td class="cell">B2C</td>

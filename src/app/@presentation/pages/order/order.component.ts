@@ -88,7 +88,18 @@ export class OrderComponent implements OnInit {
     "total_compra" : null,
     "fecha_reg": null,
   }
-  
+  itemForm = {
+    "sku": '',
+    "codigo_de_fabrica": '',
+    "marca":'',
+    "nombre_item":'',
+    "unidad": '',
+    "precio_bs_referencial": null,
+    "cantidad": null,
+    "descuento": null,
+    "total": null,
+    "subtotal": null
+  }  
 
   constructor(
     private router: Router,
@@ -96,11 +107,30 @@ export class OrderComponent implements OnInit {
     private http: HttpClient
     ) {}
 
+  changeCantidad(cantidad){
+    if(this.itemForm.precio_bs_referencial == null){
+      alert('Debe seleccionar un producto');
+    }else{
+      this.itemForm.descuento = 0;
+      this.itemForm.subtotal = parseFloat((this.itemForm.precio_bs_referencial * cantidad).toString()).toFixed(2);
+      this.itemForm.total = parseFloat((this.itemForm.precio_bs_referencial * cantidad).toString()).toFixed(2);
+    }
+  }
+
   selectItem(id){
     console.log(id);
     this.items2.forEach(e =>{
         if(e.itemID == id){
-          this.itemsAdd.push(e);
+          console.log(e);
+          // this.itemsAdd.push(e);
+          this.itemForm.sku = e.sku;
+          this.itemForm.codigo_de_fabrica = e.codigo_de_fabrica;
+          this.itemForm.nombre_item = e.nombre_item;
+          this.itemForm.marca = e.marca;
+          this.itemForm.unidad = e.unidad;
+          this.itemForm.precio_bs_referencial = e.precio_bs_referencial;
+          this.itemForm.cantidad = 1;
+          this.changeCantidad(1);
         }      
     });
     this.itemsAdd.forEach(e=>{
@@ -112,6 +142,27 @@ export class OrderComponent implements OnInit {
     console.log(this.total);
     // modal-buscar-producto
     document.getElementById("btnCloseModalBuscarProducto").click();
+  }
+  addItem(){
+    // console.log(id);
+    this.itemsAdd.push(this.itemForm);
+    this.subTotal = this.itemForm.subtotal;
+    this.total = this.itemForm.total;
+    // this.items2.forEach(e =>{
+    //     if(e.itemID == id){
+    //       console.log(e);
+    //       // this.itemsAdd.push(e);
+    //     }      
+    // });
+    // this.itemsAdd.forEach(e=>{
+    //   this.subTotal += Number(e.precio_bs_referencial) ;
+    //   console.log(e.precio_bs_referencial);
+    // });
+    // this.subTotal.toFixed(2);
+    // this.total = this.subTotal;
+    // console.log(this.total);
+    // modal-buscar-producto
+    // document.getElementById("btnCloseModalBuscarProducto").click();
   }
 
   deleteItem(id){

@@ -292,7 +292,7 @@
                     
                     <div class="col-12 table-scroll mt-3" id="table-user">
                         <button class="btn-tab-active" id="btn-pendientes" data-toggle="modal" data-target="#modal" (click)="changeTab('btn-pendientes')">Pendientes</button>
-                        <button class="btn-tab-inactive" id="btn-procesados" data-toggle="modal" data-target="#modal" (click)="changeTab('btn-procesados')">Aprobado</button>
+                        <button class="btn-tab-inactive" id="btn-procesados" data-toggle="modal" data-target="#modal" (click)="changeTab('btn-procesados')">Proccesados</button>
 
                         <!-- <button></button> -->
                         <table class="table table-bordered" *ngIf="orders.length !== 0">
@@ -341,7 +341,7 @@
                                         <select class="form-control select-estado" [value]="i.estado_autorizado" (change)="changeState(i.compraID,i.estado_autorizado)" [(ngModel)]="i.estado_autorizado">
                                             <option value="Pendiente" *ngIf="i.estado_autorizado != 'Aprobado'  && i.estado_autorizado != 'Rechazado' ">Pendiente</option>
                                             <option value="Aprobado">Aprobado</option>
-                                            <option value="Procesado">Rechazado</option>
+                                            <option value="Rechazado">Rechazado</option>
                                           </select>
                                     </td>
                                     <td class="cell-active text-center" data-toggle="modal" data-target="#modal-pago" (click)="getOrderDetail(i.compraID)">Ver detalle
